@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const LoadingScreen = ({ onComplete }) => {
     const [text, setText] = useState("");
-    const fullText = "Hello World />";
+    const fullText = "adawatia";
 
     useEffect(() => {
         let index = 0;
@@ -14,13 +14,13 @@ export const LoadingScreen = ({ onComplete }) => {
                 clearInterval(interval);
                 
                 setTimeout(() => {
-                    onComplete(); // Fixed function call
+                    onComplete(); // This was fixed correctly
                 }, 1000);
             }
         }, 100);
 
-        return () => clearInterval(interval); // Cleanup function
-    }, [fullText, onComplete]); // Dependency array updated
+        return () => clearInterval(interval);
+    }, [fullText, onComplete]); // Dependency array is correct
 
     return (
         <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center">
@@ -29,7 +29,7 @@ export const LoadingScreen = ({ onComplete }) => {
             </div>
 
             <div className="w-[200px] h-[2px] bg-gray-800 rounded relative overflow-hidden">
-                <div className="w-[40%] h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-loading"></div>
+                <div className="w-[40%] h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-loading-bar"></div>
             </div>
         </div>
     );
