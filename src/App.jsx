@@ -4,6 +4,7 @@ import { LoadingScreen } from "./components/LoadingScreen";
 import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
 import { Home } from "./components/sections/Home";
+import { About } from "./components/sections/About";
 import "./index.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Navbar menuOpen={menuOpen} setMenuOpen={toggleMenu} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={toggleMenu} />
         <Home />
+        <About/>
       </div>
     </>
   );
