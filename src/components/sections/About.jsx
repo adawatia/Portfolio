@@ -217,7 +217,8 @@ export const About = () => {
                       <p className="text-gray-400 text-sm">{cert.year}</p>
                     </div>
                     {cert.achievement && (
-                      <span className="inline-block mt-2 bg-blue-500/20 text-blue-500 text-xs py-1 px-3 rounded-full">
+                      <span className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm 
+                          hover:bg-blue-500/20 hover:shadow-md transition">
                         {cert.achievement}
                       </span>
                     )}
