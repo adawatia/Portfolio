@@ -50,6 +50,14 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         Certificates
       </a>
       <a
+        href="#code"
+        onClick={() => setMenuOpen(false)}
+        className={`text-2xl font-semibold text-white my-4 transition-transform duration-300 
+  ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+      >
+        Code
+      </a>
+      <a
         href="#publications"
         onClick={() => setMenuOpen(false)}
         className={`text-2xl font-semibold text-white my-4 transition-transform duration-300 

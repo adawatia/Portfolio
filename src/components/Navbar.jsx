@@ -48,6 +48,12 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
               Certificates
             </a>
             <a
+              href="#code"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Code
+            </a>
+            <a
               href="#publications"
               className="text-gray-300 hover:text-white transition-colors"
             >
