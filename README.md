@@ -1,4 +1,4 @@
-# 🌐 Musical Adventure - Personal Website 🚀  
+# 🌐 adawatia.tech - Personal Website 🚀  
 
 Welcome to my personal website! 🎉  
 
