@@ -2,33 +2,34 @@ import { useEffect, useState } from "react";
 
 export const LoadingScreen = ({ onComplete }) => {
   const [text, setText] = useState("");
+  const [progress, setProgress] = useState(0);
   const fullText = "<adawatia/>";
-
+  
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setText(fullText.substring(0, index));
+      // Calculate progress percentage based on current text length
+      setProgress((index / fullText.length) * 100);
+      
       index++;
-
       if (index > fullText.length) {
         clearInterval(interval);
-
         setTimeout(() => {
           onComplete();
         }, 1000);
       }
     }, 100);
-
+    
     return () => clearInterval(interval);
-  }, [onComplete]);
-
+  }, [onComplete, fullText.length]);
+  
   return (
     <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center overflow-hidden">
       {/* Enhanced background effect - animated particles */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-black" />
         <div className="absolute inset-0 opacity-10 animate-pulse bg-[radial-gradient(circle,rgba(59,130,246,0.3)_10%,transparent_40%)]" />
-
         {/* Additional subtle particle animation */}
         <div className="absolute inset-0 opacity-20">
           {[...Array(20)].map((_, i) => (
@@ -45,7 +46,7 @@ export const LoadingScreen = ({ onComplete }) => {
           ))}
         </div>
       </div>
-
+      
       {/* Planets and Stars */}
       <div className="absolute inset-0">
         <div className="planet planet-1"></div>
@@ -66,7 +67,7 @@ export const LoadingScreen = ({ onComplete }) => {
           ))}
         </div>
       </div>
-
+      
       {/* Loading Text and Bar */}
       <div className="text-center z-10 px-6">
         <div className="glass-effect p-6 rounded-lg backdrop-blur-md border border-gray-700/50 bg-gray-900/20">
@@ -74,9 +75,11 @@ export const LoadingScreen = ({ onComplete }) => {
             {text} <span className="animate-blink ml-1 text-white"> / </span>
           </h1>
         </div>
-
         <div className="w-[200px] h-[2px] bg-gray-800 rounded relative overflow-hidden mt-6">
-          <div className="w-[40%] h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-loading-bar"></div>
+          <div 
+            className="h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-pulse"
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
       </div>
     </div>
