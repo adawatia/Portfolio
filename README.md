@@ -1,19 +1,17 @@
-# 🌐 adawatia.tech - Personal Website 🚀  
 
-Welcome to my personal website! 🎉  
+# 🌐 [adawatia.tech](https://adawatia.tech) - My Funky Portfolio 🚀  
 
-This project is currently **under development**, where I’m battling bugs, tweaking pixels, and possibly questioning my life choices—all fueled by an **unhealthy amount of coffee**. ☕💻  
+Welcome to my little corner of the internet! 🎉  
 
-## 🔧 Work in Progress  
-Stay tuned for:  
-- ✨ A sleek, minimal design  
-- 🚀 Blazing-fast performance  
-- 💡 Cool features & experiments  
+The website is now **LIVE**—no more “coming soon” nonsense. Click [here](https://adawatia.tech) and check it out!  
 
+## 🌟 What’s Inside?  
+- ✨ A sleek, minimal design (because less is more, right?)  
+- 🚀 Blazing-fast performance (no one likes slow websites)  
+- 💡 Cool features & experiments (I tinker with stuff, you enjoy the results)  
 
-
-## 📅 Updates Coming Soon!  
-Until then, feel free to check back later—or just imagine how awesome it’s going to be! 😎  
-
+So go ahead, **click around, break things (not literally)**, and let me know what you think! 😎  
 
 ---
+
+Let me know if you want to spice it up even more! 🔥
