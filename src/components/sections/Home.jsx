@@ -129,34 +129,6 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Social & Coding Platform Links - Fixed Right Side */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-20">
-        <div
-          className={`flex flex-col space-y-4 transition-all duration-1000 ease-out ${
-            isVisible
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-10"
-          }`}
-          style={{ transitionDelay: "800ms" }}
-        >
-          {platformLinks.map((platform, index) => (
-            <a
-              key={index}
-              href={platform.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex items-center gap-2 p-2 rounded-lg bg-gray-900/60 backdrop-blur-sm transition-all duration-300 ${platform.color}`}
-              aria-label={platform.name}
-              style={{ transitionDelay: `${800 + index * 100}ms` }}
-            >
-              <span className="text-gray-400 group-hover:text-current">
-                {platform.icon}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-
       <RevealOnScroll animationType="fade-up" threshold={0.1} className="w-full">
         <div className="text-center z-10 px-6">
           <RevealOnScroll animationType="fade-up" delay={200}>
@@ -171,8 +143,29 @@ export const Home = () => {
               Reviewer.
             </p>
           </RevealOnScroll>
-          
+
+          {/* Social & Coding Platform Links - Centered Below Text */}
           <RevealOnScroll animationType="fade-up" delay={600}>
+            <div className="flex justify-center space-x-6 mb-8">
+              {platformLinks.map((platform, index) => (
+                <a
+                  key={index}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-2 p-3 rounded-lg backdrop-blur-sm border border-gray-700/50 bg-gray-900/20 hover:bg-gray-900/40 transition-all duration-300 ${platform.color}`}
+                  aria-label={platform.name}
+                  style={{ transitionDelay: `${800 + index * 100}ms` }}
+                >
+                  <span className="text-gray-400 group-hover:text-current">
+                    {platform.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </RevealOnScroll>
+          
+          <RevealOnScroll animationType="fade-up" delay={800}>
             <div className="flex justify-center space-x-6">
               <a
                 href="#projects"
