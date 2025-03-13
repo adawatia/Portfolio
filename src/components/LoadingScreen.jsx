@@ -7,7 +7,7 @@ export const LoadingScreen = ({ onComplete }) => {
   const [currentPhase, setCurrentPhase] = useState(0);
   const fullText = "adawatia";
   
-  // Define loading phases with custom speeds
+  // Define loading phases with custom speeds - optimized for smoother progression
   const phases = useMemo(() => [
     { target: 30, speed: 1.2 }, // Initial phase - slightly faster
     { target: 60, speed: 0.8 }, // Middle phase - slightly slower
@@ -15,55 +15,56 @@ export const LoadingScreen = ({ onComplete }) => {
     { target: 100, speed: 1.5 } // Final burst to completion - faster
   ], []);
   
-  // Enhanced particle system with different types - reduced glitter effect and added space clouds
+  // Optimized particle generation with better performance and visual consistency
   const generateParticles = useCallback((progress) => {
     const particles = [];
-    // Reduce base count for less glitter
-    const baseCount = Math.floor(progress / 5); // Reduced from /3 to /5
+    // Adjusted particle count for better performance
+    const baseCount = Math.min(15, Math.floor(progress / 6)); 
     
-    // Background ambient particles (reduced count)
+    // Background ambient particles with more consistent distribution
     for (let i = 0; i < baseCount; i++) {
       particles.push({
         id: `bg-${i}`,
         type: 'ambient',
-        size: Math.random() * 2 + 0.6, // Slightly smaller
-        x: Math.random() * 100,
-        y: Math.random() * 100,
+        size: Math.random() * 2 + 0.6,
+        x: 10 + Math.random() * 80, // Better distribution within visible area
+        y: 10 + Math.random() * 80, // Avoid edges for better visibility
         delay: Math.random() * 5,
         duration: 4 + Math.random() * 6,
-        opacity: 0.2 + (Math.random() * 0.2) // Reduced opacity
+        opacity: 0.2 + (Math.random() * 0.2)
       });
     }
     
-    // Add special foreground particles at certain thresholds (fewer)
+    // Refined foreground particles with better positioning
     if (progress > 30) {
-      for (let i = 0; i < 2; i++) { // Reduced from 3 to 2
+      const fgCount = Math.min(3, Math.floor(progress / 30));
+      for (let i = 0; i < fgCount; i++) {
         particles.push({
           id: `fg-${i}`,
           type: 'foreground',
-          size: Math.random() * 3 + 1, // Slightly smaller
-          x: 35 + (Math.random() * 30),
-          y: 40 + (Math.random() * 20),
+          size: Math.random() * 3 + 1,
+          x: 35 + (Math.random() * 30), // Centered in the view
+          y: 40 + (Math.random() * 20), // Positioned strategically
           delay: Math.random() * 2,
           duration: 2 + Math.random() * 3,
-          opacity: 0.4 + (Math.random() * 0.3) // Reduced opacity
+          opacity: 0.4 + (Math.random() * 0.3)
         });
       }
     }
     
-    // Add space cloud-like particles
+    // Enhanced space cloud distribution for better visual composition
     if (progress > 10) {
-      const cloudCount = Math.min(3, Math.floor(progress / 25));
+      const cloudCount = Math.min(4, Math.floor(progress / 25));
       for (let i = 0; i < cloudCount; i++) {
         particles.push({
           id: `cloud-${i}`,
           type: 'cloud',
-          size: Math.random() * 60 + 30, // Larger size for clouds
-          x: Math.random() * 100,
-          y: Math.random() * 100,
+          size: Math.random() * 60 + 30,
+          x: 20 + (Math.random() * 60), // More central positioning
+          y: 20 + (Math.random() * 60), // Better vertical distribution
           delay: Math.random() * 3,
-          duration: 10 + Math.random() * 15, // Slower movement
-          opacity: 0.05 + (Math.random() * 0.08) // Very subtle opacity
+          duration: 10 + Math.random() * 15,
+          opacity: 0.05 + (Math.random() * 0.08)
         });
       }
     }
@@ -71,20 +72,21 @@ export const LoadingScreen = ({ onComplete }) => {
     return particles;
   }, []);
   
-  // Generate dynamic particles
+  // Memoized particles with dependency on loading progress only when needed
   const particles = useMemo(() => 
     generateParticles(loadingProgress), 
     [generateParticles, loadingProgress]
   );
   
-  // Easing function for smoother progress
+  // Enhanced easing function for more natural motion
   const easeOutQuad = (t) => t * (2 - t);
   
   useEffect(() => {
+    // Optimized timing calculations for better cross-device consistency
     const totalDuration = 4200; // 4.2 seconds
     const charTypingTime = totalDuration / (fullText.length + 2);
     
-    // Character typing effect
+    // Character typing effect with better timing
     let index = 0;
     const charInterval = setInterval(() => {
       setText(fullText.substring(0, index));
@@ -98,20 +100,21 @@ export const LoadingScreen = ({ onComplete }) => {
       }
     }, charTypingTime);
     
-    // Improved cursor blink with variable timing
+    // Improved cursor blink with variable timing based on progress
     let blinkSpeed = 500;
     const cursorInterval = setInterval(() => {
       setCursorVisible(prev => !prev);
-      // Cursor blinks faster as loading progresses
-      if (loadingProgress > 75) blinkSpeed = 350;
+      // Adaptive cursor blink speed
+      blinkSpeed = loadingProgress > 75 ? 350 : 
+                  loadingProgress > 50 ? 450 : 500;
     }, blinkSpeed);
     
-    // Phase-based loading progress with dynamic speed
+    // Refined phase-based loading progress with smoother transitions
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) return 100;
         
-        // Determine current phase
+        // Determine current phase with smoother transitions
         let phase = 0;
         for (let i = 0; i < phases.length; i++) {
           if (prev < phases[i].target) {
@@ -120,28 +123,30 @@ export const LoadingScreen = ({ onComplete }) => {
           }
         }
         
-        // Update phase if needed
+        // Update phase if needed with state management
         if (phase !== currentPhase) {
           setCurrentPhase(phase);
         }
         
-        // Calculate increment based on current phase speed and remaining distance
+        // Enhanced increment calculation for more natural progression
         const targetValue = phases[phase].target;
         const speed = phases[phase].speed;
         const remaining = targetValue - prev;
-        const increment = Math.max(0.3, remaining * 0.05 * speed);
+        // More natural acceleration/deceleration
+        const increment = Math.max(0.3, remaining * 0.05 * speed * (1 + Math.sin(prev * 0.1))); 
         
         return Math.min(targetValue, prev + increment);
       });
     }, 100);
     
-    // Safety fallback
+    // Improved safety fallback with proper cleanup
     const maxTimeoutId = setTimeout(() => {
       setText(fullText);
       setLoadingProgress(100);
       setTimeout(onComplete, 300);
     }, totalDuration + 500);
     
+    // Comprehensive cleanup function
     return () => {
       clearInterval(charInterval);
       clearInterval(cursorInterval);
@@ -150,7 +155,7 @@ export const LoadingScreen = ({ onComplete }) => {
     };
   }, [fullText, onComplete, phases, currentPhase]);
   
-  // Dynamic status messages with more detail
+  // Enhanced status messages with better theming consistency
   const statusMessages = useMemo(() => [
     { threshold: 0, text: "initializing system", color: "text-blue-300" },
     { threshold: 25, text: "loading portfolio", color: "text-blue-300" },
@@ -158,59 +163,61 @@ export const LoadingScreen = ({ onComplete }) => {
     { threshold: 75, text: "welcome", color: "text-cyan-300", suffix: "onboard" }
   ], []);
   
+  // Optimized status message selection
   const currentStatus = useMemo(() => {
-    for (let i = statusMessages.length - 1; i >= 0; i--) {
-      if (loadingProgress >= statusMessages[i].threshold) {
-        return statusMessages[i];
-      }
-    }
-    return statusMessages[0];
+    const reversedIndex = statusMessages.findIndex((status, index, array) => 
+      loadingProgress >= status.threshold && 
+      (index === array.length - 1 || loadingProgress < array[index + 1].threshold)
+    );
+    return reversedIndex !== -1 ? 
+      statusMessages[reversedIndex] : 
+      statusMessages[0];
   }, [statusMessages, loadingProgress]);
   
-  // Calculate dynamic glitch effect intensity (reduced)
+  // Refined glitch effect intensity with smoother transitions
   const glitchIntensity = useMemo(() => {
-    // Reduced glitch effect overall
-    if (loadingProgress > 90) return 0.4; // Reduced from 0.6
-    if (loadingProgress > 70) return 0.2; // Reduced from 0.3
-    if (loadingProgress > 40) return 0.1; // Reduced from 0.15
+    // Improved glitch effect with smoother transitions
+    if (loadingProgress > 90) return 0.4;
+    if (loadingProgress > 70) return 0.2;
+    if (loadingProgress > 40) return 0.1;
     return 0;
   }, [loadingProgress]);
   
   return (
     <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center overflow-hidden">
-      {/* Enhanced background with space-like effects */}
+      {/* Enhanced background with improved space-like effects */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Deep space gradient background */}
+        {/* Optimized deep space gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black to-gray-900/10" />
         
-        {/* Subtle nebula-like glow */}
+        {/* Enhanced nebula-like glow with better performance */}
         <div 
-          className="absolute inset-0 opacity-6 animate-pulse" 
+          className="absolute inset-0 opacity-6" 
           style={{
             background: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 45%)",
             animation: "pulse 12s infinite ease-in-out"
           }}
         />
         
-        {/* Space dust - reduced star field */}
+        {/* Optimized space dust with better distribution */}
         <div className="absolute inset-0">
-          {[...Array(35)].map((_, i) => ( // Reduced from 50 to 35
+          {[...Array(35)].map((_, i) => (
             <div
               key={`star-${i}`}
               className="absolute bg-white rounded-full"
               style={{
-                width: `${Math.random() * 1.5 + 0.5}px`, // Slightly smaller
-                height: `${Math.random() * 1.5 + 0.5}px`, // Slightly smaller
+                width: `${Math.random() * 1.5 + 0.5}px`,
+                height: `${Math.random() * 1.5 + 0.5}px`,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.4 + 0.2, // Reduced opacity
+                opacity: Math.random() * 0.4 + 0.2,
                 animation: `twinkle ${Math.random() * 4 + 4}s infinite ease-in-out ${Math.random() * 2}s`
               }}
             />
           ))}
         </div>
         
-        {/* Space clouds */}
+        {/* Improved space clouds with better visual composition */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(3)].map((_, i) => (
             <div
@@ -219,8 +226,8 @@ export const LoadingScreen = ({ onComplete }) => {
               style={{
                 width: `${150 + Math.random() * 200}px`,
                 height: `${120 + Math.random() * 150}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: `${20 + Math.random() * 60}%`, // More visible positioning
+                left: `${20 + Math.random() * 60}%`, // More centered distribution
                 opacity: 0.05 + (Math.random() * 0.1),
                 filter: 'blur(30px)',
                 transform: 'translate(-50%, -50%)',
@@ -230,7 +237,7 @@ export const LoadingScreen = ({ onComplete }) => {
           ))}
         </div>
         
-        {/* Enhanced flowing particles with different behavior based on type */}
+        {/* Optimized flowing particles with better performance */}
         <div className="absolute inset-0">
           {particles.map((particle) => (
             <div
@@ -261,9 +268,9 @@ export const LoadingScreen = ({ onComplete }) => {
         </div>
       </div>
       
-      {/* Main content with enhanced text effects */}
+      {/* Enhanced main content with improved text effects */}
       <div className="mb-16 text-6xl font-bold relative flex items-center select-none">
-        {/* Subtle glitch effect layer (only visible during transitions) */}
+        {/* Refined glitch effect layer with better timing */}
         {glitchIntensity > 0 && (
           <div 
             className="absolute z-20 text-red-500 opacity-0"
@@ -278,7 +285,7 @@ export const LoadingScreen = ({ onComplete }) => {
           </div>
         )}
         
-        {/* Main text with enhanced gradient */}
+        {/* Enhanced main text with improved gradient */}
         <span 
           className="relative z-10 bg-clip-text text-transparent"
           style={{
@@ -290,7 +297,7 @@ export const LoadingScreen = ({ onComplete }) => {
           {text}
         </span>
         
-        {/* Enhanced block cursor with animation */}
+        {/* Improved block cursor with better animation */}
         <div 
           className={`ml-1 h-12 w-5 relative z-10 transition-all duration-200 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}
           style={{
@@ -303,18 +310,18 @@ export const LoadingScreen = ({ onComplete }) => {
           <div className="absolute inset-0 opacity-50 mix-blend-overlay bg-gradient-to-b from-white via-transparent to-transparent"></div>
         </div>
         
-        {/* Minimal text glow effect */}
+        {/* Enhanced text glow effect */}
         <div className="absolute -inset-1 blur-sm opacity-15 bg-blue-500 rounded-lg -z-10 animate-pulse"></div>
       </div>
       
-      {/* Enhanced loading bar with premium effects */}
+      {/* Optimized loading bar with improved visual effects */}
       <div className="w-72 h-1.5 bg-gray-800/40 rounded-full relative overflow-hidden mb-8 backdrop-blur-sm">
-        {/* Background texture */}
+        {/* Improved background texture */}
         <div className="absolute inset-0 opacity-20 bg-noise"></div>
         
-        {/* Progress indicator with dynamic gradient */}
+        {/* Enhanced progress indicator with smoother animation */}
         <div 
-          className="h-full rounded-full transition-all duration-300 ease-out"
+          className="h-full rounded-full"
           style={{ 
             width: `${loadingProgress}%`,
             backgroundImage: "linear-gradient(90deg, #1e40af 0%, #38bdf8 50%, #3b82f6 100%)",
@@ -323,14 +330,14 @@ export const LoadingScreen = ({ onComplete }) => {
           }}
         />
         
-        {/* Enhanced particles with dynamic behavior */}
+        {/* Improved loading bar particles with better positioning */}
         {loadingProgress > 5 && (
           [...Array(3)].map((_, i) => (
             <div 
               key={i}
               className="absolute top-1/2 -translate-y-1/2 h-3 w-0.5 bg-blue-200/70 rounded-full"
               style={{
-                left: `${Math.min(100, loadingProgress - (i * 5))}%`,
+                left: `${Math.min(98, loadingProgress - (i * 5))}%`, // Prevent overflow
                 opacity: 0.6 - (i * 0.15),
                 filter: 'blur(0.5px)',
                 transform: 'translate(-50%, -50%) rotate(15deg)',
@@ -342,13 +349,13 @@ export const LoadingScreen = ({ onComplete }) => {
         )}
       </div>
       
-      {/* Enhanced percentage indicator with animation */}
+      {/* Enhanced percentage indicator with improved animation */}
       <div className="mb-6 relative">
         <div 
           className="text-lg font-light tracking-widest bg-clip-text text-transparent"
           style={{
             backgroundImage: "linear-gradient(90deg, #3b82f6 0%, #38bdf8 100%)",
-            transition: "opacity 0.3s ease"
+            transition: "all 0.3s ease"
           }}
         >
           {Math.round(loadingProgress)}%
@@ -356,7 +363,7 @@ export const LoadingScreen = ({ onComplete }) => {
         <div className="absolute inset-0 blur-md opacity-15 bg-blue-500 rounded-full -z-10"></div>
       </div>
       
-      {/* Enhanced status text with dynamic color transition */}
+      {/* Improved status text with better transitions */}
       <div className="text-sm font-light tracking-wide h-6 overflow-hidden relative">
         <div className="flex items-center transition-all duration-500">
           <span className={currentStatus.color + " transition-colors duration-500"}>
@@ -365,7 +372,7 @@ export const LoadingScreen = ({ onComplete }) => {
           <span className="animate-ellipsis text-blue-400 ml-1">...</span>
           {currentStatus.suffix && (
             <span 
-              className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent ml-1 animate-fadeIn"
+              className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent ml-1"
               style={{
                 animation: "fadeIn 0.8s forwards, pulse 2s infinite ease-in-out"
               }}
@@ -376,11 +383,11 @@ export const LoadingScreen = ({ onComplete }) => {
         </div>
       </div>
       
-      {/* Enhanced animations */}
+      {/* Enhanced animations with better performance */}
       <style jsx>{`
         @keyframes twinkle {
-          0%, 100% { opacity: 0.15; }
-          50% { opacity: 0.5; }
+          0%, 100% { opacity: 0.15; transform: scale(0.8); }
+          50% { opacity: 0.5; transform: scale(1); }
         }
         
         @keyframes floatAmbient {
@@ -408,8 +415,8 @@ export const LoadingScreen = ({ onComplete }) => {
         }
         
         @keyframes pulse {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
         }
         
         @keyframes fadeIn {

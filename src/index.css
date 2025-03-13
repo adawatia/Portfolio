@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Space Grotesk", sans-serif;
@@ -9,13 +10,13 @@ html, body {
 }
 
 @layer utilities {
-
   @keyframes blink {
-    0%, 100%{
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
-      opacity: 0
+      opacity: 0;
     }
   }
 }
@@ -24,16 +25,43 @@ html, body {
   animation: blink 0.8s step-end infinite;
 }
 
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(250%);
-    }
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
   }
-
+  100% {
+    transform: translateX(250%);
+  }
+}
 
 .animate-loading-bar {
   animation: loading 0.8s ease infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.26, 0.54, 0.32, 1);
+  transition-property: opacity, transform;
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-fade-up {
+  transform: translateY(30px);
+}
+
+.reveal-fade-left {
+  transform: translateX(-30px);
+}
+
+.reveal-fade-right {
+  transform: translateX(30px);
+}
+
+.reveal-zoom {
+  transform: scale(0.9);
 }
