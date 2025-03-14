@@ -174,7 +174,7 @@ export const Home = () => {
 
       {/* Smaller Open to Work Banner - Positioned at Left Bottom */}
       {showBanner && showOpenToWork && (
-        <div className="absolute z-20 sm:bottom-6 sm:left-6 bottom-4 left-0 right-0 sm:right-auto px-4 sm:px-0">
+        <div className="absolute z-20 sm:bottom-6 sm:left-6 bottom-12 left-0 right-0 sm:right-auto px-4 sm:px-0">
           <RevealOnScroll animationType="fade-right" threshold={0.1}>
             <div 
               onClick={handleDownloadResume}
