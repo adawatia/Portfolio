@@ -11,22 +11,6 @@ export const Projects = () => {
       icon: "🛡️", // Security shield
     },
     {
-      title: "CHIP-8 Emulator",
-      description:
-        "Built a CHIP-8 emulator in C++ to replicate the functionality of the classic 1970s-era CHIP-8 virtual machine.",
-      technologies: ["C++", "SDL2", "Low-Level Programming", "Emulation"],
-      link: "#",
-      icon: "🎮", // Gaming controller
-    },
-    {
-      title: "Smart Parking & Toll Management System",
-      description:
-        "Engineered an automated system using IoT components, RFID sensors, and real-time data processing.",
-      technologies: ["Vega Aries v3.0", "ESP8266", "RFID", "C++", "Firebase"],
-      link: "#",
-      icon: "🅿️", // Parking symbol
-    },
-    {
       title: "PaperWise 📚 - Intelligent PDF Chatbot",
       description:
         "Engineered an intelligent PDF assistant using PySide6, Ollama, and PyMuPDF for seamless document interaction, smart Q&A, and offline AI processing.",
@@ -34,6 +18,22 @@ export const Projects = () => {
       link: "https://github.com/adawatia/PaperWise",
       icon: "📚",
     },
+    {
+      title: "CHIP-8 Emulator",
+      description:
+        "Built a CHIP-8 emulator in C++ to replicate the functionality of the classic 1970s-era CHIP-8 virtual machine.",
+      technologies: ["C++", "SDL2", "Low-Level Programming", "Emulation"],
+      // link: "#",
+      icon: "🎮", // Gaming controller
+    },
+    {
+      title: "Smart Parking & Toll Management System",
+      description:
+        "Engineered an automated system using IoT components, RFID sensors, and real-time data processing.",
+      technologies: ["Vega Aries v3.0", "ESP8266", "RFID", "C++", "Firebase"],
+      // link: "#",
+      icon: "🅿️", // Parking symbol
+    }
   ];
 
   // Icon badge component for consistency (reused from About component)
@@ -115,20 +115,22 @@ export const Projects = () => {
                   ))}
                 </div>
 
-                {/* GitHub link with icon */}
+                {/* GitHub link with icon - only shown if project.link exists */}
                 <div className="flex justify-end items-center mt-6">
-                  <a
-                    href={project.link}
-                    className="group flex items-center gap-2 p-2 bg-blue-500/5 hover:bg-blue-500/10 rounded-lg transition-all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View project on GitHub"
-                  >
-                    <GitHubIcon />
-                    <span className="text-blue-400 group-hover:text-blue-300 transition-colors text-sm font-medium">
-                      View Code
-                    </span>
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      className="group flex items-center gap-2 p-2 bg-blue-500/5 hover:bg-blue-500/10 rounded-lg transition-all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="View project on GitHub"
+                    >
+                      <GitHubIcon />
+                      <span className="text-blue-400 group-hover:text-blue-300 transition-colors text-sm font-medium">
+                        View Code
+                      </span>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
