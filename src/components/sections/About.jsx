@@ -138,14 +138,27 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center py-10 md:py-20 overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center py-10 md:py-20"
     >
-      {/* <RevealOnScroll> */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
-          {/* About Me */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* About Me Header */}
+        <RevealOnScroll 
+          threshold={0.1} 
+          rootMargin="0px"
+          animationType="fade-up"
+        >
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
             About Me
           </h2>
+        </RevealOnScroll>
+
+        {/* About Me Content */}
+        <RevealOnScroll 
+          threshold={0.1} 
+          rootMargin="0px"
+          animationType="fade-up"
+          delay={100}
+        >
           <div className="rounded-xl p-6 md:p-8 border border-white/10 hover:-translate-y-1 transition-all">
             <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
               A passionate software engineer with a strong problem-solving
@@ -185,11 +198,18 @@ export const About = () => {
               ))}
             </div>
           </div>
+        </RevealOnScroll>
 
-          {/* Education & Experience Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            {/* Education */}
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
+        {/* Education & Experience Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          {/* Education */}
+          <RevealOnScroll 
+            threshold={0.1} 
+            rootMargin="0px"
+            animationType="fade-left"
+            delay={200}
+          >
+            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 transition-all h-full">
               <div className="flex items-center justify-center mb-6">
                 <IconBadge icon="🎓" size="md" />
                 <h3 className="text-xl font-bold ml-3">Education</h3>
@@ -219,9 +239,16 @@ export const About = () => {
                 ))}
               </div>
             </div>
+          </RevealOnScroll>
 
-            {/* Work Experience */}
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
+          {/* Work Experience */}
+          <RevealOnScroll 
+            threshold={0.1} 
+            rootMargin="0px"
+            animationType="fade-right"
+            delay={200}
+          >
+            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 transition-all h-full">
               <div className="flex items-center justify-center mb-6">
                 <IconBadge icon="💼" size="md" />
                 <h3 className="text-xl font-bold ml-3">Work Experience</h3>
@@ -248,9 +275,16 @@ export const About = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
+        </div>
 
-          {/* Publications Section */}
+        {/* Publications Section */}
+        <RevealOnScroll 
+          threshold={0.1} 
+          rootMargin="0px"
+          animationType="fade-up"
+          delay={300}
+        >
           <div className="p-6 md:p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
             <div className="flex items-center justify-center mb-8">
               <IconBadge icon="📝" size="lg" />
@@ -286,8 +320,15 @@ export const About = () => {
               ))}
             </div>
           </div>
+        </RevealOnScroll>
 
-          {/* Certifications */}
+        {/* Certifications */}
+        <RevealOnScroll 
+          threshold={0.1} 
+          rootMargin="0px"
+          animationType="fade-up"
+          delay={400}
+        >
           <div className="p-6 md:p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
             <div className="flex items-center justify-center mb-8">
               <IconBadge icon="🏆" size="lg" />
@@ -319,8 +360,8 @@ export const About = () => {
               ))}
             </div>
           </div>
-        </div>
-      {/* </RevealOnScroll> */}
+        </RevealOnScroll>
+      </div>
     </section>
   );
 };
