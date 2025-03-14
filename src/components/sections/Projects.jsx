@@ -19,6 +19,14 @@ export const Projects = () => {
       icon: "📚",
     },
     {
+      title: "PyCrafted 🐍 - A collection of Python mini-projects.",
+      description:
+        "Each project covers different domains, from games and simulations to algorithms and data compression.",
+      technologies: ["Python","Many Libraries"],
+      link: "https://github.com/adawatia/PyCrafted",
+      icon: "🐍",
+    },
+    {
       title: "CHIP-8 Emulator",
       description:
         "Built a CHIP-8 emulator in C++ to replicate the functionality of the classic 1970s-era CHIP-8 virtual machine.",
