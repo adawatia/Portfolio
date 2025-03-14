@@ -27,12 +27,12 @@ export const Projects = () => {
       icon: "🅿️", // Parking symbol
     },
     {
-      title: "Interactive PDF Chat-bot with LLM",
+      title: "PaperWise 📚 - Intelligent PDF Chatbot",
       description:
-        "Built a Streamlit-based PDF chatbot leveraging LangChain and Hugging Face API for intelligent, conversational PDF interactions.",
-      technologies: ["Streamlit", "Langchain", "Hugging Face API", "Gemini"],
-      link: "#",
-      icon: "🤖", // Robot for chatbot
+        "Engineered an intelligent PDF assistant using PySide6, Ollama, and PyMuPDF for seamless document interaction, smart Q&A, and offline AI processing.",
+      technologies: ["PySide6", "Ollama", "PyMuPDF", "Requests"],
+      link: "https://github.com/adawatia/PaperWise",
+      icon: "📚",
     },
   ];
 
