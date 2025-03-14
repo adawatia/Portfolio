@@ -37,44 +37,37 @@ const RevealOnScroll = ({
       }
     };
 
-    const options = {
+    const observer = new IntersectionObserver(handleIntersection, {
       threshold,
       rootMargin,
-    };
+    });
 
-    const observer = new IntersectionObserver(handleIntersection, options);
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
-      observer.disconnect();
     };
   }, [threshold, rootMargin, isRevealed]);
 
   // Determine animation classes based on animation type
-  const getAnimationClass = () => {
-    switch (animationType) {
-      case "fade-left":
-        return "reveal-fade-left";
-      case "fade-right":
-        return "reveal-fade-right";
-      case "zoom":
-        return "reveal-zoom";
-      case "fade-up":
-      default:
-        return "reveal-fade-up";
-    }
+  const animationClasses = {
+    "fade-up": "reveal-fade-up",
+    "fade-left": "reveal-fade-left",
+    "fade-right": "reveal-fade-right",
+    "zoom": "reveal-zoom",
   };
+
+  const animationClass = animationClasses[animationType] || "reveal-fade-up";
 
   return (
     <div 
       ref={ref} 
-      className={`reveal ${getAnimationClass()} ${isRevealed ? 'visible' : ''} ${className}`}
+      className={`reveal ${animationClass} ${isRevealed ? 'visible' : ''} ${className}`}
       style={{ 
         transitionDelay: delay ? `${delay}ms` : '0ms'
       }}
@@ -85,34 +78,3 @@ const RevealOnScroll = ({
 };
 
 export default RevealOnScroll;
-
-// Add these CSS classes to your global styles or component styles:
-/* 
-.reveal {
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.26, 0.54, 0.32, 1);
-  transition-property: opacity, transform;
-  will-change: opacity, transform;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-.reveal-fade-up {
-  transform: translateY(30px);
-}
-
-.reveal-fade-left {
-  transform: translateX(-30px);
-}
-
-.reveal-fade-right {
-  transform: translateX(30px);
-}
-
-.reveal-zoom {
-  transform: scale(0.9);
-}
-*/

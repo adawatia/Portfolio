@@ -43,6 +43,7 @@ body {
   animation: loading 0.8s ease infinite;
 }
 
+/* Reveal Animations */
 .reveal {
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.26, 0.54, 0.32, 1);
@@ -71,6 +72,7 @@ body {
   transform: scale(0.9);
 }
 
+/* Fade In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -84,6 +86,7 @@ body {
   animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Space Background */
 .space-background {
   position: fixed;
   top: 0;
@@ -132,6 +135,7 @@ body {
   }
 }
 
+/* Planets */
 .planet {
   position: absolute;
   border-radius: 50%;
@@ -185,19 +189,6 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Blinking Cursor */
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-
-
 /* Mobile-specific adjustments */
 @media (max-width: 640px) {
   .planet-1,
@@ -211,7 +202,20 @@ body {
     padding: 1rem; /* Adjust padding for mobile */
   }
 
+  /* Adjust reveal animations for mobile */
   .reveal-fade-up {
     transform: translateY(15px); /* Smaller transform for mobile */
+  }
+
+  .reveal-fade-left {
+    transform: translateX(-15px); /* Smaller transform for mobile */
+  }
+
+  .reveal-fade-right {
+    transform: translateX(15px); /* Smaller transform for mobile */
+  }
+
+  .reveal-zoom {
+    transform: scale(0.95); /* Slightly smaller zoom for mobile */
   }
 }
