@@ -25,6 +25,11 @@ body {
   animation: blink 0.8s step-end infinite;
 }
 
+.animate-blink {
+  animation: blink 1s infinite;
+  font-weight: bold; /* Makes the cursor thicker */
+}
+
 @keyframes loading {
   0% {
     transform: translateX(-100%);
@@ -67,9 +72,14 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -80,7 +90,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   overflow: hidden;
   z-index: -1;
 }
@@ -113,7 +123,8 @@ body {
 }
 
 @keyframes twinkle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
   }
   50% {
@@ -132,7 +143,7 @@ body {
   height: 100px;
   top: 20%;
   left: 10%;
-  background: radial-gradient(circle, #FF6B6B, #FFE66D);
+  background: radial-gradient(circle, #ff6b6b, #ffe66d);
   animation: float 10s infinite ease-in-out;
 }
 
@@ -141,7 +152,7 @@ body {
   height: 80px;
   top: 50%;
   left: 70%;
-  background: radial-gradient(circle, #4ECDC4, #556270);
+  background: radial-gradient(circle, #4ecdc4, #556270);
   animation: float 8s infinite ease-in-out;
 }
 
@@ -150,12 +161,13 @@ body {
   height: 60px;
   top: 70%;
   left: 30%;
-  background: radial-gradient(circle, #C7F464, #4ECDC4);
+  background: radial-gradient(circle, #c7f464, #4ecdc4);
   animation: float 12s infinite ease-in-out;
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -165,9 +177,9 @@ body {
 
 /* Glass Effect */
 .glass-effect {
+  background-color: rgba(17, 24, 39, 0.2); /* Fallback */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(17, 24, 39, 0.2); /* Adjust transparency */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -175,7 +187,8 @@ body {
 
 /* Blinking Cursor */
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -183,7 +196,22 @@ body {
   }
 }
 
-.animate-blink {
-  animation: blink 1s infinite;
-  font-weight: bold; /* Makes the cursor thicker */
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .planet-1,
+  .planet-2,
+  .planet-3 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .glass-effect {
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  .reveal-fade-up {
+    transform: translateY(15px); /* Smaller transform for mobile */
+  }
 }

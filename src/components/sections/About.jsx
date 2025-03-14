@@ -7,7 +7,7 @@ export const About = () => {
     "GUI Development": ["PySide"],
     "DevOps & Cloud": ["Docker", "Git", "AWS S3", "AWS Beanstalk"],
     "Data & ML": ["PostgreSQL", "NumPy", "Pandas", "Matplotlib"],
-    Interests: ["Linux", "Artificial Intelligence", "Computer Architecture"],
+    "Interests": ["Linux", "Artificial Intelligence", "Computer Architecture"],
   };
 
   const skillIcons = {
@@ -16,7 +16,7 @@ export const About = () => {
     "GUI Development": "🖱️",
     "DevOps & Cloud": "☁️",
     "Data & ML": "📊",
-    Interests: "🔍",
+    "Interests": "🔍",
   };
 
   const certifications = [
@@ -97,13 +97,12 @@ export const About = () => {
     },
   ];
 
-  // Updated publications data with details and bullet points
   const publications = [
     {
       title: "A Cloud-Based Telemedicine Platform: Enhancing Healthcare Accessibility through Technology",
       details: [
         "International Conference on Progressive Innovations in Intelligent Systems and Data Science",
-        "Published by IEEE Computer Society on IEEE Xplore"
+        "Published by IEEE Computer Society on IEEE Xplore",
       ],
       date: "December 2024",
       type: "Conference",
@@ -112,7 +111,7 @@ export const About = () => {
     {
       title: "Efficient Parking & Toll Management: A RFID-Enabled Approach with Vega Aries Development Board",
       details: [
-        "International Journal of Innovative Science and Research Technology (Volume 8, Issue 11)"
+        "International Journal of Innovative Science and Research Technology (Volume 8, Issue 11)",
       ],
       date: "November 2023",
       type: "Journal",
@@ -120,7 +119,6 @@ export const About = () => {
     },
   ];
 
-  // Icon badge component for consistency
   const IconBadge = ({ icon, size = "md", bgColor = "blue" }) => {
     const sizeClasses = {
       sm: "w-8 h-8 text-xl",
@@ -140,45 +138,44 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center py-20"
+      className="min-h-screen flex items-center justify-center py-10 md:py-20 overflow-hidden"
     >
-      <RevealOnScroll>
-        <div className="max-w-4xl mx-auto px-4">
+      {/* <RevealOnScroll> */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
           {/* About Me */}
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
             About Me
           </h2>
-          <div className="rounded-xl p-8 border border-white/10 hover:-translate-y-1 transition-all">
-            <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+          <div className="rounded-xl p-6 md:p-8 border border-white/10 hover:-translate-y-1 transition-all">
+            <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
               A passionate software engineer with a strong problem-solving
               mindset and a drive for innovation. Proficient in Python, C++, and
               modern web frameworks, with experience in scalable applications,
               cloud computing, and artificial intelligence. Enthusiastic about
-              leveraging my skills to build impactful solutions. �
+              leveraging my skills to build impactful solutions.
             </p>
 
             {/* Technical Expertise */}
             <div className="flex items-center justify-center mb-6">
               <IconBadge icon="🛠️" size="lg" />
-              <h3 className="text-2xl font-bold ml-3">Technical Expertise</h3>
+              <h3 className="text-xl sm:text-2xl font-bold ml-3">Technical Expertise</h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {Object.entries(skills).map(([category, items], index) => (
                 <div
                   key={index}
-                  className="rounded-xl p-6 border border-white/10 hover:-translate-y-1 transition-all"
+                  className="rounded-xl p-4 sm:p-6 border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center mb-4">
                     <IconBadge icon={skillIcons[category]} size="sm" />
-                    <h3 className="text-xl font-bold ml-3">{category}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold ml-3">{category}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {items.map((tech, key) => (
                       <div
                         key={key}
-                        className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm 
-                          hover:bg-blue-500/20 hover:shadow-md transition"
+                        className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-md transition"
                       >
                         {tech}
                       </div>
@@ -207,9 +204,7 @@ export const About = () => {
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
                     <div className="flex items-center">
                       <IconBadge icon={item.icon} size="sm" />
-                      <h4 className="font-bold text-white ml-2">
-                        {item.degree}
-                      </h4>
+                      <h4 className="font-bold text-white ml-2">{item.degree}</h4>
                     </div>
                     <p className="text-blue-500 mt-1">
                       {item.institution} | {item.period}
@@ -256,7 +251,7 @@ export const About = () => {
           </div>
 
           {/* Publications Section */}
-          <div className="p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
+          <div className="p-6 md:p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
             <div className="flex items-center justify-center mb-8">
               <IconBadge icon="📝" size="lg" />
               <h3 className="text-xl font-bold ml-3">Publications</h3>
@@ -270,20 +265,17 @@ export const About = () => {
                 >
                   <IconBadge icon={pub.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <h4 className="font-bold text-white text-lg">
-                      {pub.title}
-                    </h4>
+                    <h4 className="font-bold text-white text-lg">{pub.title}</h4>
                     <div className="mt-2 text-sm">
                       <ul className="list-disc list-inside text-gray-400">
                         {pub.details.map((detail, i) => (
-                          <li key={i} className="ml-2 mt-1">{detail}</li>
+                          <li key={i} className="ml-2 mt-1">
+                            {detail}
+                          </li>
                         ))}
                       </ul>
                       <div className="flex justify-between items-center mt-3">
-                        <span
-                          className="bg-green-500/10 text-green-500 py-1 px-3 rounded-full text-sm 
-                            hover:bg-green-500/20 hover:shadow-md transition"
-                        >
+                        <span className="bg-green-500/10 text-green-500 py-1 px-3 rounded-full text-sm hover:bg-green-500/20 hover:shadow-md transition">
                           {pub.type}
                         </span>
                         <p className="text-gray-400">{pub.date}</p>
@@ -296,7 +288,7 @@ export const About = () => {
           </div>
 
           {/* Certifications */}
-          <div className="p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
+          <div className="p-6 md:p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
             <div className="flex items-center justify-center mb-8">
               <IconBadge icon="🏆" size="lg" />
               <h3 className="text-xl font-bold ml-3">Certifications</h3>
@@ -310,19 +302,14 @@ export const About = () => {
                 >
                   <IconBadge icon={cert.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <h4 className="font-bold text-white text-lg">
-                      {cert.name}
-                    </h4>
+                    <h4 className="font-bold text-white text-lg">{cert.name}</h4>
                     <div className="flex justify-between items-center mt-1">
                       <p className="text-gray-300">{cert.issuer}</p>
                       <p className="text-gray-400 text-sm">{cert.year}</p>
                     </div>
                     {cert.achievement && (
                       <div className="mt-2">
-                        <span
-                          className="bg-yellow-500/10 text-yellow-500 py-1 px-3 rounded-full text-sm 
-        hover:bg-yellow-500/20 hover:shadow-md transition"
-                        >
+                        <span className="bg-yellow-500/10 text-yellow-500 py-1 px-3 rounded-full text-sm hover:bg-yellow-500/20 hover:shadow-md transition">
                           {cert.achievement}
                         </span>
                       </div>
@@ -333,7 +320,7 @@ export const About = () => {
             </div>
           </div>
         </div>
-      </RevealOnScroll>
+      {/* </RevealOnScroll> */}
     </section>
   );
 };
