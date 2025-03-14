@@ -11,7 +11,7 @@ export const Projects = () => {
       icon: "🛡️", // Security shield
     },
     {
-      title: "PaperWise 📚 - Intelligent PDF Chatbot",
+      title: "PaperWise",
       description:
         "Engineered an intelligent PDF assistant using PySide6, Ollama, and PyMuPDF for seamless document interaction, smart Q&A, and offline AI processing.",
       technologies: ["PySide6", "Ollama", "PyMuPDF", "Requests"],
@@ -19,9 +19,9 @@ export const Projects = () => {
       icon: "📚",
     },
     {
-      title: "PyCrafted 🐍 - A collection of Python mini-projects.",
+      title: "PyCrafted",
       description:
-        "Each project covers different domains, from games and simulations to algorithms and data compression.",
+        "A collection of Python mini-projects,each project covers different domains, from games and simulations to algorithms and data compression.",
       technologies: ["Python","Many Libraries"],
       link: "https://github.com/adawatia/PyCrafted",
       icon: "🐍",

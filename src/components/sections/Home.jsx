@@ -3,10 +3,25 @@ import RevealOnScroll from "../RevealOnScroll";
 
 export const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 300);
   }, []);
+
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    // Replace with your actual resume file path
+    const resumeLink = "/resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeLink;
+    link.download = "Devansh_Sharma_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    // Hide banner after download
+    setShowBanner(false);
+  };
 
   // Social and coding platform links
   const platformLinks = [
@@ -128,6 +143,37 @@ export const Home = () => {
           ))}
         </div>
       </div>
+
+      {/* Open to Work Banner - Positioned at Left Bottom */}
+      {showBanner && (
+        <div className="absolute bottom-6 left-6 z-20">
+          <RevealOnScroll animationType="fade-right" threshold={0.1}>
+            <div 
+              onClick={handleDownloadResume}
+              className="group cursor-pointer flex items-center gap-2 p-3 pr-5 rounded-lg backdrop-blur-md border border-blue-500/50 bg-blue-900/30 hover:bg-blue-800/40 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 animate-pulse hover:animate-none"
+            >
+              <div className="relative flex items-center">
+                <span className="w-3 h-3 bg-green-400 rounded-full mr-2 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span>
+                <span className="text-blue-300 font-medium group-hover:text-blue-200">Open to Work</span>
+              </div>
+              
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowBanner(false);
+                }}
+                className="ml-4 text-gray-400 hover:text-gray-200 transition-colors"
+                aria-label="Close banner"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </RevealOnScroll>
+        </div>
+      )}
 
       <RevealOnScroll animationType="fade-up" threshold={0.1} className="w-full">
         <div className="text-center z-10 px-6">
