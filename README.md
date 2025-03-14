@@ -16,11 +16,11 @@ So go ahead, **click around, break things (not literally)**, and let me know wha
 Here are some previews of the portfolio in action:  
 
 ### 🖼️ Homepage  
-![Desktop](src\assets\1.png)  
+![Desktop](screenshots\1.png)  
 
-![Mobile](src\assets\2.png)  
+![Mobile](screenshots\2.png)  
   
-![Loading sceen](src\assets\3.png)  
+![Loading sceen](screenshots\3.png)  
 
 ---
 
