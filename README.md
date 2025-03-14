@@ -15,12 +15,24 @@ So go ahead, **click around, break things (not literally)**, and let me know wha
 ## 📸 Screenshots  
 Here are some previews of the portfolio in action:  
 
-### 🖼️ Homepage  
-![Desktop](screenshots/1.png)  
+## 📸 Screenshots  
+Here are some previews of the portfolio in action:  
 
-![Mobile](screenshots/2.png)  
-  
-![Loading sceen](screenshots/3.png)  
+### 🖼️ Homepage  
+<p align="center">
+  <img src="screenshots/1.png" alt="Desktop" width="70%" style="border: 2px solid #ddd; border-radius: 8px;">
+</p>
+
+### 📱 Mobile View  
+<p align="center">
+  <img src="screenshots/2.png" alt="Mobile" width="40%" style="border: 2px solid #ddd; border-radius: 8px;">
+</p>
+
+### ⏳ Loading Screen  
+<p align="center">
+  <img src="screenshots/3.png" alt="Loading screen" width="50%" style="border: 2px solid #ddd; border-radius: 8px;">
+</p>
+
 
 ---
 
