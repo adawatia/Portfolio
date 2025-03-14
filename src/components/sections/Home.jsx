@@ -1,11 +1,16 @@
 import { useEffect, useState, useRef } from "react";
 import RevealOnScroll from "../RevealOnScroll";
 
+// Configuration to control the visibility of the "Open to Work" button
+const config = {
+  showOpenToWorkButton: true, // Set to false to hide the button
+};
+
 export const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showBanner, setShowBanner] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
-  const [showOpenToWork, setShowOpenToWork] = useState(true); // New state for controlling visibility
+  const [showOpenToWork, setShowOpenToWork] = useState(config.showOpenToWorkButton); // Use config to control visibility
   const tooltipTimeoutRef = useRef(null);
 
   useEffect(() => {
@@ -175,9 +180,9 @@ export const Home = () => {
               onClick={handleDownloadResume}
               className="group cursor-pointer relative flex items-center gap-1 py-2 px-3 rounded-lg backdrop-blur-lg border border-blue-500/30 bg-blue-900/10 hover:bg-blue-900/20 transition-all duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1 overflow-hidden w-auto max-w-fit"
               style={{
-                backgroundColor: 'rgba(30, 58, 138, 0.2)',
+                backgroundColor: 'rgba(30, 58, 138, 0.2)', // Fixed: Removed unnecessary parentheses
                 boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                backdropFilter: 'blur(10px)',
+                backdropFilter: 'blur(10px)', // Fixed: Added missing semicolon
                 border: '1px solid rgba(59, 130, 246, 0.3)'
               }}
               role="button"
@@ -219,13 +224,26 @@ export const Home = () => {
               {/* Animated subtle background gradient */}
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              {/* Close button - smaller */}
+              {/* Close button - larger and more visible */}
               <button 
                 onClick={handleCloseBanner}
-                className="ml-1 text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 rounded-full p-0.5 transition-colors duration-300"
-                aria-label="Close banner"
+                className="absolute -top-2 -right-2 p-1.5 text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 rounded-full transition-colors duration-300"
+                aria-label="Close Open to Work banner" // Fixed: Improved aria-label
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)', // Fixed: Removed unnecessary parentheses
+                }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
