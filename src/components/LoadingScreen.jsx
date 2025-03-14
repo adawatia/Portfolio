@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 
 export const LoadingScreen = ({ onComplete }) => {
   const [text, setText] = useState("");
-  const fullText = "<adawatia/>";
- 
+  const fullText = "Science is elegant.";
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setText(fullText.substring(0, index));
-      
       index++;
       if (index > fullText.length) {
         clearInterval(interval);
@@ -17,10 +16,10 @@ export const LoadingScreen = ({ onComplete }) => {
         }, 1000);
       }
     }, 100);
-   
+
     return () => clearInterval(interval);
   }, [onComplete, fullText.length]);
- 
+
   return (
     <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center overflow-hidden">
       {/* Enhanced background effect - animated particles */}
@@ -43,7 +42,7 @@ export const LoadingScreen = ({ onComplete }) => {
           ))}
         </div>
       </div>
-     
+
       {/* Planets and Stars */}
       <div className="absolute inset-0">
         <div className="planet planet-1"></div>
@@ -64,12 +63,13 @@ export const LoadingScreen = ({ onComplete }) => {
           ))}
         </div>
       </div>
-     
+
       {/* Loading Text */}
       <div className="text-center z-10 px-6">
         <div className="glass-effect p-6 rounded-lg backdrop-blur-md border border-gray-700/50 bg-gray-900/20">
           <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-500 to-cyan-300 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            {text} <span className="animate-blink ml-1 text-white"> / </span>
+            {text}
+            <span className="animate-blink ml-1 text-white">|</span>
           </h1>
         </div>
       </div>
