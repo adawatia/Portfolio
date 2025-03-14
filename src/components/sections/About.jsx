@@ -97,6 +97,29 @@ export const About = () => {
     },
   ];
 
+  // Updated publications data with details and bullet points
+  const publications = [
+    {
+      title: "A Cloud-Based Telemedicine Platform: Enhancing Healthcare Accessibility through Technology",
+      details: [
+        "International Conference on Progressive Innovations in Intelligent Systems and Data Science",
+        "Published by IEEE Computer Society on IEEE Xplore"
+      ],
+      date: "December 2024",
+      type: "Conference",
+      icon: "🏥",
+    },
+    {
+      title: "Efficient Parking & Toll Management: A RFID-Enabled Approach with Vega Aries Development Board",
+      details: [
+        "International Journal of Innovative Science and Research Technology (Volume 8, Issue 11)"
+      ],
+      date: "November 2023",
+      type: "Journal",
+      icon: "🚗",
+    },
+  ];
+
   // Icon badge component for consistency
   const IconBadge = ({ icon, size = "md", bgColor = "blue" }) => {
     const sizeClasses = {
@@ -131,7 +154,7 @@ export const About = () => {
               mindset and a drive for innovation. Proficient in Python, C++, and
               modern web frameworks, with experience in scalable applications,
               cloud computing, and artificial intelligence. Enthusiastic about
-              leveraging my skills to build impactful solutions. 🚀
+              leveraging my skills to build impactful solutions. �
             </p>
 
             {/* Technical Expertise */}
@@ -229,6 +252,46 @@ export const About = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Publications Section */}
+          <div className="p-8 mt-8 rounded-xl border border-white/10 hover:-translate-y-1 transition-all">
+            <div className="flex items-center justify-center mb-8">
+              <IconBadge icon="📝" size="lg" />
+              <h3 className="text-xl font-bold ml-3">Publications</h3>
+            </div>
+
+            <div className="space-y-6">
+              {publications.map((pub, index) => (
+                <div
+                  key={index}
+                  className="flex items-start p-4 rounded-lg border border-white/10 hover:-translate-y-1 transition-all"
+                >
+                  <IconBadge icon={pub.icon} size="md" />
+                  <div className="flex-1 ml-4">
+                    <h4 className="font-bold text-white text-lg">
+                      {pub.title}
+                    </h4>
+                    <div className="mt-2 text-sm">
+                      <ul className="list-disc list-inside text-gray-400">
+                        {pub.details.map((detail, i) => (
+                          <li key={i} className="ml-2 mt-1">{detail}</li>
+                        ))}
+                      </ul>
+                      <div className="flex justify-between items-center mt-3">
+                        <span
+                          className="bg-green-500/10 text-green-500 py-1 px-3 rounded-full text-sm 
+                            hover:bg-green-500/20 hover:shadow-md transition"
+                        >
+                          {pub.type}
+                        </span>
+                        <p className="text-gray-400">{pub.date}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
