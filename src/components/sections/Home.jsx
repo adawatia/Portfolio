@@ -1,25 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import RevealOnScroll from "../RevealOnScroll";
 
 export const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showBanner, setShowBanner] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [showOpenToWork, setShowOpenToWork] = useState(true); // New state for controlling visibility
+  const tooltipTimeoutRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 300);
+
+    // Clear timeout on component unmount
+    return () => {
+      if (tooltipTimeoutRef.current) {
+        clearTimeout(tooltipTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Function to handle resume download
-  const handleDownloadResume = () => {
+  const handleDownloadResume = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+
     // Replace with your actual resume file path
     const resumeLink = "/resume.pdf";
     const link = document.createElement("a");
     link.href = resumeLink;
     link.download = "Devansh_Sharma_Resume.pdf";
+    link.setAttribute("aria-label", "Download Devansh Sharma's Resume");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    // Hide banner after download
+
+    // Show tooltip feedback
+    setShowTooltip(true);
+    tooltipTimeoutRef.current = setTimeout(() => {
+      setShowTooltip(false);
+    }, 3000);
+  };
+
+  // Function to close banner
+  const handleCloseBanner = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     setShowBanner(false);
   };
 
@@ -144,32 +167,77 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Open to Work Banner - Positioned at Left Bottom */}
-      {showBanner && (
-        <div className="absolute bottom-6 left-6 z-20">
+      {/* Smaller Open to Work Banner - Positioned at Left Bottom */}
+      {showBanner && showOpenToWork && (
+        <div className="absolute z-20 sm:bottom-6 sm:left-6 bottom-4 left-0 right-0 sm:right-auto px-4 sm:px-0">
           <RevealOnScroll animationType="fade-right" threshold={0.1}>
             <div 
               onClick={handleDownloadResume}
-              className="group cursor-pointer flex items-center gap-2 p-3 pr-5 rounded-lg backdrop-blur-md border border-blue-500/50 bg-blue-900/30 hover:bg-blue-800/40 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 animate-pulse hover:animate-none"
+              className="group cursor-pointer relative flex items-center gap-1 py-2 px-3 rounded-lg backdrop-blur-lg border border-blue-500/30 bg-blue-900/10 hover:bg-blue-900/20 transition-all duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1 overflow-hidden w-auto max-w-fit"
+              style={{
+                backgroundColor: 'rgba(30, 58, 138, 0.2)',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(59, 130, 246, 0.3)'
+              }}
+              role="button"
+              aria-label="Download resume - Open to work"
+              tabIndex="0"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleDownloadResume(e);
+                }
+              }}
             >
-              <div className="relative flex items-center">
-                <span className="w-3 h-3 bg-green-400 rounded-full mr-2 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span>
-                <span className="text-blue-300 font-medium group-hover:text-blue-200">Open to Work</span>
+              {/* Glass-like effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-cyan-900/10 opacity-50 rounded-lg"></div>
+              
+              <div className="relative flex items-center z-10">
+                {/* Active status indicator with pulse effect */}
+                <div className="relative">
+                  <span className="absolute w-2 h-2 bg-green-400 rounded-full opacity-70 animate-ping"></span>
+                  <span className="relative inline-flex w-2 h-2 bg-green-400 rounded-full mr-2 shadow-[0_0_6px_rgba(74,222,128,0.8)]"></span>
+                </div>
+                
+                <div className="flex flex-col">
+                  <span className="text-blue-200 text-sm font-medium group-hover:text-blue-100 transition-colors">Open to Work</span>
+                  <span className="text-xs text-blue-300/70 text-[10px]">Click for resume</span>
+                </div>
+                
+                {/* Download icon - smaller size */}
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="ml-1 w-3 h-3 text-blue-300 group-hover:text-blue-200 transition-all duration-300 group-hover:translate-y-1" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
               </div>
               
+              {/* Animated subtle background gradient */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Close button - smaller */}
               <button 
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowBanner(false);
-                }}
-                className="ml-4 text-gray-400 hover:text-gray-200 transition-colors"
+                onClick={handleCloseBanner}
+                className="ml-1 text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 rounded-full p-0.5 transition-colors duration-300"
                 aria-label="Close banner"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
               </button>
+              
+              {/* Tooltip for download confirmation - adjusted position */}
+              {showTooltip && (
+                <div className="absolute -top-8 left-0 right-0 mx-auto w-max px-2 py-1 bg-green-800/90 text-green-100 text-xs rounded-md shadow-lg backdrop-blur-sm">
+                  Resume download started!
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-green-800/90 rotate-45"></div>
+                </div>
+              )}
             </div>
           </RevealOnScroll>
         </div>
