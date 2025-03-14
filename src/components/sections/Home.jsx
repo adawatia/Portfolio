@@ -139,8 +139,7 @@ export const Home = () => {
           
           <RevealOnScroll animationType="fade-up" delay={400}>
             <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto font-light tracking-wide">
-              A passionate Software Developer, avid Book Enthusiast, and Tech
-              Reviewer.
+              A passionate Software Developer, avid Book Enthusiast.
             </p>
           </RevealOnScroll>
 
