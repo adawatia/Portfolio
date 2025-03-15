@@ -27,6 +27,13 @@ export const Projects = () => {
       icon: "🐍",
     },
     {
+      title: "BroMetrics",
+      description: "A hybrid application designed for brogrammers to meticulously track health, body measurements, and gym weights. Built using Python and Flet, BroMetrics offers intuitive design and robust tracking features to help users monitor their fitness journey and make data-driven improvements.",
+      technologies: ["Flet", "Python", "Google APIs"],
+      link: "https://github.com/adawatia/BroMetrics",  
+      icon: "💪" //
+    },
+    {
       title: "CHIP-8 Emulator",
       description:
         "Built a CHIP-8 emulator in C++ to replicate the functionality of the classic 1970s-era CHIP-8 virtual machine.",
