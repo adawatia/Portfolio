@@ -63,7 +63,7 @@ export const About = () => {
       docLink: "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
     },
     {
-      name: "Coding Bootcamp",
+      name: "C++ Coding Bootcamp",
       issuer: "Chandigarh University",
       year: "2023",
       icon: "🧑‍💻",
@@ -71,7 +71,7 @@ export const About = () => {
     },
     {
       name: "Code Vipassana S7",
-      issuer: "Google Developers Group, Kouchi",
+      issuer: "Google Developers Group",
       year: "2024",
       icon: "⌨️",
       docLink: "https://drive.google.com/file/d/17yOb_ndzyLhgdUEkAtgF0cnlJOLRGc9j/view?usp=sharing",
