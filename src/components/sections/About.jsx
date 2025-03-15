@@ -7,7 +7,7 @@ export const About = () => {
     "GUI Development": ["PySide"],
     "DevOps & Cloud": ["Docker", "Git", "AWS S3", "AWS Beanstalk"],
     "Data & ML": ["PostgreSQL", "NumPy", "Pandas", "Matplotlib"],
-    "Interests": ["Linux", "Artificial Intelligence", "Computer Architecture"],
+    Interests: ["Linux", "Artificial Intelligence", "Computer Architecture"],
   };
 
   const skillIcons = {
@@ -16,7 +16,7 @@ export const About = () => {
     "GUI Development": "🖱️",
     "DevOps & Cloud": "☁️",
     "Data & ML": "📊",
-    "Interests": "🔍",
+    Interests: "🔍",
   };
 
   const certifications = [
@@ -31,14 +31,16 @@ export const About = () => {
       issuer: "AWS Academy",
       year: "2024",
       icon: "☁️",
-      docLink: "https://www.credly.com/badges/58dea7e2-0252-4a7d-a7a0-c0ea93233cdb/public_url",
+      docLink:
+        "https://www.credly.com/badges/58dea7e2-0252-4a7d-a7a0-c0ea93233cdb/public_url",
     },
     {
       name: "Summer School on AI",
       issuer: "UUST, Russia",
       year: "2024",
       icon: "🤖",
-      docLink: "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing", // Example link
+      docLink:
+        "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing", // Example link
     },
     {
       name: "NPTEL IoT",
@@ -46,37 +48,41 @@ export const About = () => {
       year: "2023",
       achievement: "Gold – Topper",
       icon: "📡",
-      docLink: "https://drive.google.com/file/d/1C1AcTR_zuIxx3MXtgpRsETNUKX6hzhdM/view?usp=sharing",
+      docLink:
+        "https://drive.google.com/file/d/1C1AcTR_zuIxx3MXtgpRsETNUKX6hzhdM/view?usp=sharing",
     },
     {
       name: "NDG Linux Unhatched",
       issuer: "Cisco NetAcad",
       year: "2023",
       icon: "🐧",
-      docLink: "https://drive.google.com/file/d/1Ef0Z039zqq9hXZaf1cxhWzHA0eyyq6cj/view?usp=sharing"
+      docLink:
+        "https://drive.google.com/file/d/1Ef0Z039zqq9hXZaf1cxhWzHA0eyyq6cj/view?usp=sharing",
     },
     {
       name: "Vega Processor Ecosystem",
       issuer: "C-DAC, IEEE India Council",
       year: "2023",
       icon: "⚙️",
-      docLink: "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
+      docLink:
+        "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
     },
     {
       name: "C++ Coding Bootcamp",
       issuer: "Chandigarh University",
       year: "2023",
       icon: "🧑‍💻",
-      docLink: "https://drive.google.com/file/d/1nk05mYFWiiMCp15dIkqNmqPfcixg2AXt/view?usp=sharing",
+      docLink:
+        "https://drive.google.com/file/d/1nk05mYFWiiMCp15dIkqNmqPfcixg2AXt/view?usp=sharing",
     },
     {
       name: "Code Vipassana S7",
       issuer: "Google Developers Group",
       year: "2024",
       icon: "⌨️",
-      docLink: "https://drive.google.com/file/d/17yOb_ndzyLhgdUEkAtgF0cnlJOLRGc9j/view?usp=sharing",
+      docLink:
+        "https://drive.google.com/file/d/17yOb_ndzyLhgdUEkAtgF0cnlJOLRGc9j/view?usp=sharing",
     },
-
   ];
 
   const education = [
@@ -112,7 +118,8 @@ export const About = () => {
       description:
         "Optimized Deep Neural Networks (DNN) on Network-on-Chip (NoC) architectures using C++ & Python. Identified performance bottlenecks and contributed to AI hardware-software co-design principles.",
       icon: "🔬",
-      docLink: "https://drive.google.com/file/d/1ImZJTuVyvpGp9PQaTdqS6ostz9d2X1lD/view?usp=sharing",
+      docLink:
+        "https://drive.google.com/file/d/1ImZJTuVyvpGp9PQaTdqS6ostz9d2X1lD/view?usp=sharing",
     },
     {
       role: "ML Engineer Intern",
@@ -126,7 +133,8 @@ export const About = () => {
 
   const publications = [
     {
-      title: "A Cloud-Based Telemedicine Platform: Enhancing Healthcare Accessibility through Technology",
+      title:
+        "A Cloud-Based Telemedicine Platform: Enhancing Healthcare Accessibility through Technology",
       details: [
         "International Conference on Progressive Innovations in Intelligent Systems and Data Science",
         "Published by IEEE Computer Society on IEEE Xplore",
@@ -134,10 +142,12 @@ export const About = () => {
       date: "December 2024",
       type: "Conference",
       icon: "🏥",
-      docLink: "https://drafts.icpids.com/pdfs/ICPIDS2024-1HzVgPgxdlBrv8gckLTbgg/346900a382/346900a382.pdf", // Example link
+      docLink:
+        "https://drafts.icpids.com/pdfs/ICPIDS2024-1HzVgPgxdlBrv8gckLTbgg/346900a382/346900a382.pdf", // Example link
     },
     {
-      title: "Efficient Parking & Toll Management: A RFID-Enabled Approach with Vega Aries Development Board",
+      title:
+        "Efficient Parking & Toll Management: A RFID-Enabled Approach with Vega Aries Development Board",
       details: [
         "International Journal of Innovative Science and Research Technology (Volume 8, Issue 11)",
       ],
@@ -171,7 +181,11 @@ export const About = () => {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* About Me Header */}
-        <RevealOnScroll threshold={0.1} rootMargin="0px" animationType="fade-up">
+        <RevealOnScroll
+          threshold={0.1}
+          rootMargin="0px"
+          animationType="fade-up"
+        >
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
             About Me
           </h2>
@@ -196,7 +210,9 @@ export const About = () => {
             {/* Technical Expertise */}
             <div className="flex items-center justify-center mb-6">
               <IconBadge icon="🛠️" size="lg" />
-              <h3 className="text-xl sm:text-2xl font-bold ml-3">Technical Expertise</h3>
+              <h3 className="text-xl sm:text-2xl font-bold ml-3">
+                Technical Expertise
+              </h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -207,7 +223,9 @@ export const About = () => {
                 >
                   <div className="flex items-center mb-4">
                     <IconBadge icon={skillIcons[category]} size="sm" />
-                    <h3 className="text-lg sm:text-xl font-bold ml-3">{category}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold ml-3">
+                      {category}
+                    </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {items.map((tech, key) => (
@@ -249,7 +267,9 @@ export const About = () => {
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
                     <div className="flex items-center">
                       <IconBadge icon={item.icon} size="sm" />
-                      <h4 className="font-bold text-white ml-2">{item.degree}</h4>
+                      <h4 className="font-bold text-white ml-2">
+                        {item.degree}
+                      </h4>
                     </div>
                     <p className="text-blue-500 mt-1">
                       {item.institution} | {item.period}
@@ -300,7 +320,8 @@ export const About = () => {
                             aria-label={`Verify experience: ${job.role} at ${job.company}`}
                             className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
                           >
-                            <span className="mr-1">🔗</span>
+                            <span className="mr-1">🔍</span>{" "}
+                            {/* Changed icon to a magnifying glass */}
                             Verify
                           </a>
                         </div>
@@ -339,7 +360,9 @@ export const About = () => {
                   <IconBadge icon={pub.icon} size="md" />
                   <div className="flex-1 ml-4">
                     <div className="relative">
-                      <h4 className="font-bold text-white text-lg pr-14">{pub.title}</h4>
+                      <h4 className="font-bold text-white text-lg pr-14">
+                        {pub.title}
+                      </h4>
                       {pub.docLink && (
                         <div className="absolute right-0 top-0">
                           <a
@@ -399,7 +422,9 @@ export const About = () => {
                   <IconBadge icon={cert.icon} size="md" />
                   <div className="flex-1 ml-4">
                     <div className="relative">
-                      <h4 className="font-bold text-white text-lg pr-14">{cert.name}</h4>
+                      <h4 className="font-bold text-white text-lg pr-14">
+                        {cert.name}
+                      </h4>
                       {cert.docLink && (
                         <div className="absolute right-0 top-0">
                           <a
@@ -409,7 +434,8 @@ export const About = () => {
                             aria-label={`Verify certification: ${cert.name}`}
                             className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
                           >
-                            <span className="mr-1">🔗</span>
+                            <span className="mr-1">🔍</span>{" "}
+                            {/* Changed icon to a magnifying glass */}
                             Verify
                           </a>
                         </div>
