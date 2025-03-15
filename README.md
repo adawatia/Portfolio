@@ -15,9 +15,6 @@ So go ahead, **click around, break things (not literally)**, and let me know wha
 ## 📸 Screenshots  
 Here are some previews of the portfolio in action:  
 
-## 📸 Screenshots  
-Here are some previews of the portfolio in action:  
-
 ### 🖼️ Homepage  
 <p align="center">
   <img src="screenshots/1.png" alt="Desktop" width="70%" style="border: 2px solid #ddd; border-radius: 8px;">
