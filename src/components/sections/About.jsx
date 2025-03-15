@@ -108,10 +108,11 @@ export const About = () => {
     {
       role: "Research Intern",
       company: "IIT Guwahati",
-      period: "June-July 2023",
+      period: "May-July 2023",
       description:
         "Optimized Deep Neural Networks (DNN) on Network-on-Chip (NoC) architectures using C++ & Python. Identified performance bottlenecks and contributed to AI hardware-software co-design principles.",
       icon: "🔬",
+      docLink: "https://drive.google.com/file/d/1ImZJTuVyvpGp9PQaTdqS6ostz9d2X1lD/view?usp=sharing",
     },
     {
       role: "ML Engineer Intern",
@@ -290,6 +291,20 @@ export const About = () => {
                       <h4 className="font-bold text-white ml-2">
                         {job.role} at {job.company}
                       </h4>
+                      {job.docLink && (
+                        <div className="ml-auto">
+                          <a
+                            href={job.docLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Verify experience: ${job.role} at ${job.company}`}
+                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
+                          >
+                            <span className="mr-1">🔗</span>
+                            Verify
+                          </a>
+                        </div>
+                      )}
                     </div>
                     <p className="text-blue-500 mt-1">{job.period}</p>
                     <p className="text-gray-300 text-sm mt-1">
