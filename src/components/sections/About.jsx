@@ -306,13 +306,15 @@ export const About = () => {
                     className="border-l-2 border-blue-500/50 pl-4 relative hover:border-blue-500 transition-all"
                   >
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
-                    <div className="flex items-center">
-                      <IconBadge icon={job.icon} size="sm" />
-                      <h4 className="font-bold text-white ml-2">
-                        {job.role} at {job.company}
-                      </h4>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <IconBadge icon={job.icon} size="sm" />
+                        <h4 className="font-bold text-white ml-2">
+                          {job.role} at {job.company}
+                        </h4>
+                      </div>
                       {job.docLink && (
-                        <div className="ml-auto">
+                        <div className="ml-2">
                           <a
                             href={job.docLink}
                             target="_blank"
@@ -359,18 +361,18 @@ export const About = () => {
                 >
                   <IconBadge icon={pub.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <div className="relative">
-                      <h4 className="font-bold text-white text-lg pr-14">
+                    <div className="flex justify-between items-start">
+                      <h4 className="font-bold text-white text-lg pr-2 flex-1">
                         {pub.title}
                       </h4>
                       {pub.docLink && (
-                        <div className="absolute right-0 top-0">
+                        <div className="ml-2 shrink-0">
                           <a
                             href={pub.docLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`Read publication: ${pub.title}`}
-                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
+                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all whitespace-nowrap"
                           >
                             <span className="mr-1">📄</span>
                             Read
@@ -421,18 +423,18 @@ export const About = () => {
                 >
                   <IconBadge icon={cert.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <div className="relative">
-                      <h4 className="font-bold text-white text-lg pr-14">
+                    <div className="flex justify-between items-start">
+                      <h4 className="font-bold text-white text-lg pr-2 flex-1">
                         {cert.name}
                       </h4>
                       {cert.docLink && (
-                        <div className="absolute right-0 top-0">
+                        <div className="ml-2 shrink-0">
                           <a
                             href={cert.docLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`Verify certification: ${cert.name}`}
-                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
+                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all whitespace-nowrap"
                           >
                             <span className="mr-1">🔍</span>{" "}
                             {/* Changed icon to a magnifying glass */}
