@@ -22,10 +22,9 @@ export const About = () => {
   const certifications = [
     {
       name: "Google IT Automation with Python",
-      issuer: "Coursera",
+      issuer: "Coursera, Google",
       year: "2025",
       icon: "🔐",
-      // docLink: "https://example.com/cert1", // Example link
     },
     {
       name: "AWS Academy Cloud Architecting",
@@ -36,7 +35,7 @@ export const About = () => {
     },
     {
       name: "Summer School on AI",
-      issuer: "UUST (Russia)",
+      issuer: "UUST, Russia",
       year: "2024",
       icon: "🤖",
       docLink: "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing", // Example link
@@ -48,14 +47,13 @@ export const About = () => {
       achievement: "Gold – Topper",
       icon: "📡",
       docLink: "https://drive.google.com/file/d/1C1AcTR_zuIxx3MXtgpRsETNUKX6hzhdM/view?usp=sharing",
-      // No docLink provided
     },
     {
       name: "NDG Linux Unhatched",
       issuer: "Cisco NetAcad",
       year: "2023",
       icon: "🐧",
-      // docLink: "https://example.com/cert5", // Example link
+      docLink: "https://drive.google.com/file/d/1Ef0Z039zqq9hXZaf1cxhWzHA0eyyq6cj/view?usp=sharing"
     },
     {
       name: "Vega Processor Ecosystem",
@@ -64,6 +62,21 @@ export const About = () => {
       icon: "⚙️",
       docLink: "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
     },
+    {
+      name: "Coding Bootcamp",
+      issuer: "Chandigarh University",
+      year: "2023",
+      icon: "🧑‍💻",
+      docLink: "https://drive.google.com/file/d/1nk05mYFWiiMCp15dIkqNmqPfcixg2AXt/view?usp=sharing",
+    },
+    {
+      name: "Code Vipassana S7",
+      issuer: "Google Developers Group, Kouchi",
+      year: "2024",
+      icon: "⌨️",
+      docLink: "https://drive.google.com/file/d/17yOb_ndzyLhgdUEkAtgF0cnlJOLRGc9j/view?usp=sharing",
+    },
+
   ];
 
   const education = [
@@ -72,11 +85,11 @@ export const About = () => {
       institution: "Chandigarh University",
       period: "2021-2025",
       grade: "CGPA: 7.76",
-      coursework: "CN, DBMS, OS, DSA, Computer Vision",
+      coursework: "CN, DBMS, OS, DSA, CV, Big Data Analytics, AI",
       icon: "🎓",
     },
     {
-      degree: "Intermediate – Non-Medical",
+      degree: "Intermediate",
       institution: "Darshan Academy, Ludhiana",
       period: "2020-2021",
       grade: "Percentage: 81.4%",
@@ -130,7 +143,7 @@ export const About = () => {
       date: "November 2023",
       type: "Journal",
       icon: "🚗",
-      docLink: "https://drive.google.com/file/d/1lvbyZwvHZuiGnWbYa4MEAXejsN7X0nvX/view?usp=drive_link",
+      docLink: "https://zenodo.org/records/10251059",
     },
   ];
 
