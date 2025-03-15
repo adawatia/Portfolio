@@ -25,18 +25,21 @@ export const About = () => {
       issuer: "Coursera",
       year: "2025",
       icon: "🔐",
+      // docLink: "https://example.com/cert1", // Example link
     },
     {
       name: "AWS Academy Cloud Architecting",
       issuer: "AWS Academy",
       year: "2024",
       icon: "☁️",
+      docLink: "https://www.credly.com/badges/58dea7e2-0252-4a7d-a7a0-c0ea93233cdb/public_url",
     },
     {
       name: "Summer School on AI",
-      issuer: "UUST, Russia & CU, India",
+      issuer: "UUST (Russia)",
       year: "2024",
       icon: "🤖",
+      docLink: "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing", // Example link
     },
     {
       name: "NPTEL IoT",
@@ -44,12 +47,22 @@ export const About = () => {
       year: "2023",
       achievement: "Gold – Topper",
       icon: "📡",
+      docLink: "https://drive.google.com/file/d/1C1AcTR_zuIxx3MXtgpRsETNUKX6hzhdM/view?usp=sharing",
+      // No docLink provided
     },
     {
       name: "NDG Linux Unhatched",
       issuer: "Cisco NetAcad",
       year: "2023",
       icon: "🐧",
+      // docLink: "https://example.com/cert5", // Example link
+    },
+    {
+      name: "Vega Processor Ecosystem",
+      issuer: "C-DAC, IEEE India Council",
+      year: "2023",
+      icon: "⚙️",
+      docLink: "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
     },
   ];
 
@@ -107,6 +120,7 @@ export const About = () => {
       date: "December 2024",
       type: "Conference",
       icon: "🏥",
+      docLink: "https://drafts.icpids.com/pdfs/ICPIDS2024-1HzVgPgxdlBrv8gckLTbgg/346900a382/346900a382.pdf", // Example link
     },
     {
       title: "Efficient Parking & Toll Management: A RFID-Enabled Approach with Vega Aries Development Board",
@@ -116,6 +130,7 @@ export const About = () => {
       date: "November 2023",
       type: "Journal",
       icon: "🚗",
+      docLink: "https://drive.google.com/file/d/1lvbyZwvHZuiGnWbYa4MEAXejsN7X0nvX/view?usp=drive_link",
     },
   ];
 
@@ -142,19 +157,15 @@ export const About = () => {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* About Me Header */}
-        <RevealOnScroll 
-          threshold={0.1} 
-          rootMargin="0px"
-          animationType="fade-up"
-        >
+        <RevealOnScroll threshold={0.1} rootMargin="0px" animationType="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
             About Me
           </h2>
         </RevealOnScroll>
 
         {/* About Me Content */}
-        <RevealOnScroll 
-          threshold={0.1} 
+        <RevealOnScroll
+          threshold={0.1}
           rootMargin="0px"
           animationType="fade-up"
           delay={100}
@@ -177,7 +188,7 @@ export const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {Object.entries(skills).map(([category, items], index) => (
                 <div
-                  key={index}
+                  key={category} // Use category as key for uniqueness
                   className="rounded-xl p-4 sm:p-6 border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center mb-4">
@@ -187,7 +198,7 @@ export const About = () => {
                   <div className="flex flex-wrap gap-2">
                     {items.map((tech, key) => (
                       <div
-                        key={key}
+                        key={tech} // Use tech as key for uniqueness
                         className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-md transition"
                       >
                         {tech}
@@ -203,8 +214,8 @@ export const About = () => {
         {/* Education & Experience Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {/* Education */}
-          <RevealOnScroll 
-            threshold={0.1} 
+          <RevealOnScroll
+            threshold={0.1}
             rootMargin="0px"
             animationType="fade-left"
             delay={200}
@@ -218,7 +229,7 @@ export const About = () => {
               <div className="space-y-6">
                 {education.map((item, index) => (
                   <div
-                    key={index}
+                    key={item.degree} // Use degree as key for uniqueness
                     className="border-l-2 border-blue-500/50 pl-4 relative hover:border-blue-500 transition-all"
                   >
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
@@ -242,8 +253,8 @@ export const About = () => {
           </RevealOnScroll>
 
           {/* Work Experience */}
-          <RevealOnScroll 
-            threshold={0.1} 
+          <RevealOnScroll
+            threshold={0.1}
             rootMargin="0px"
             animationType="fade-right"
             delay={200}
@@ -257,7 +268,7 @@ export const About = () => {
               <div className="space-y-6">
                 {experience.map((job, index) => (
                   <div
-                    key={index}
+                    key={job.role} // Use role as key for uniqueness
                     className="border-l-2 border-blue-500/50 pl-4 relative hover:border-blue-500 transition-all"
                   >
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
@@ -279,8 +290,8 @@ export const About = () => {
         </div>
 
         {/* Publications Section */}
-        <RevealOnScroll 
-          threshold={0.1} 
+        <RevealOnScroll
+          threshold={0.1}
           rootMargin="0px"
           animationType="fade-up"
           delay={300}
@@ -294,12 +305,28 @@ export const About = () => {
             <div className="space-y-6">
               {publications.map((pub, index) => (
                 <div
-                  key={index}
+                  key={pub.title} // Use title as key for uniqueness
                   className="flex items-start p-4 rounded-lg border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <IconBadge icon={pub.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <h4 className="font-bold text-white text-lg">{pub.title}</h4>
+                    <div className="relative">
+                      <h4 className="font-bold text-white text-lg pr-14">{pub.title}</h4>
+                      {pub.docLink && (
+                        <div className="absolute right-0 top-0">
+                          <a
+                            href={pub.docLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Read publication: ${pub.title}`}
+                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
+                          >
+                            <span className="mr-1">📄</span>
+                            Read
+                          </a>
+                        </div>
+                      )}
+                    </div>
                     <div className="mt-2 text-sm">
                       <ul className="list-disc list-inside text-gray-400">
                         {pub.details.map((detail, i) => (
@@ -323,8 +350,8 @@ export const About = () => {
         </RevealOnScroll>
 
         {/* Certifications */}
-        <RevealOnScroll 
-          threshold={0.1} 
+        <RevealOnScroll
+          threshold={0.1}
           rootMargin="0px"
           animationType="fade-up"
           delay={400}
@@ -338,12 +365,28 @@ export const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {certifications.map((cert, index) => (
                 <div
-                  key={index}
+                  key={cert.name} // Use name as key for uniqueness
                   className="flex items-start p-4 rounded-lg border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <IconBadge icon={cert.icon} size="md" />
                   <div className="flex-1 ml-4">
-                    <h4 className="font-bold text-white text-lg">{cert.name}</h4>
+                    <div className="relative">
+                      <h4 className="font-bold text-white text-lg pr-14">{cert.name}</h4>
+                      {cert.docLink && (
+                        <div className="absolute right-0 top-0">
+                          <a
+                            href={cert.docLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Verify certification: ${cert.name}`}
+                            className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
+                          >
+                            <span className="mr-1">🔗</span>
+                            Verify
+                          </a>
+                        </div>
+                      )}
+                    </div>
                     <div className="flex justify-between items-center mt-1">
                       <p className="text-gray-300">{cert.issuer}</p>
                       <p className="text-gray-400 text-sm">{cert.year}</p>
