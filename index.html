@@ -2,34 +2,129 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Updated favicon link -->
-    <link rel="icon" href="https://img.icons8.com/?size=100&id=bskQEfQJvdO4&format=png&color=000000" />
-    <!-- Added favicon for Apple devices -->
+    <!-- Primary Meta Tags -->
+    <title>Devansh Sharma | SDE</title>
+    <meta name="title" content="Devansh Sharma | Software Engineer & ML Engineer Portfolio" />
+    <meta name="description" content="Software Engineer specializing in Python, C++, ML/AI, and IoT. Experience with Generative AI, Big Data, and Cloud Computing. View my projects and professional experience." />
+    <meta name="keywords" content="software engineer, ML engineer, python, C++, generative AI, LLM, IoT, big data, cybersecurity, Streamlit, Langchain, PyTorch, AWS, cloud computing, docker, Django, FastAPI" />
+    <meta name="author" content="Devansh Sharma" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://adawatia.tech" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adawatia.tech" />
+    <meta property="og:title" content="Devansh Sharma | Software Engineer & ML Engineer" />
+    <meta property="og:description" content="Software Engineer with expertise in Python, C++, Machine Learning, AI, and IoT. IIT Guwahati research experience and publications in IEEE." />
+    <meta property="og:image" content="https://adawatia.tech/images/profile-preview.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://adawatia.tech" />
+    <meta property="twitter:title" content="Devansh Sharma | Software Engineer & ML Engineer" />
+    <meta property="twitter:description" content="Software Engineer with expertise in Python, C++, Machine Learning, AI, and IoT. IIT Guwahati research experience and publications in IEEE." />
+    <meta property="twitter:image" content="https://adawatia.tech/images/profile-preview.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=bskQEfQJvdO4&format=png&color=000000" />
     <link rel="apple-touch-icon" href="https://img.icons8.com/?size=100&id=bskQEfQJvdO4&format=png&color=000000" />
     
-    <!-- Font preloading for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    
-    <!-- Added meta descriptions for better SEO -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="adawatia - Personal Portfolio Website" />
-    <meta name="author" content="adawatia" />
-    
-    <!-- Added theme color for browser UI -->
+    <!-- Theme Color -->
     <meta name="theme-color" content="#000000" />
     
-    <title>Devansh Sharma | Portfolio</title>
+    <!-- Font preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <!-- Resource hints for performance -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
     
-    <!-- Added preloading hint for main script -->
-    <link rel="preload" href="/src/main.jsx" as="script" />
+    <!-- Structured Data for Portfolio -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Devansh Sharma",
+      "url": "https://adawatia.tech",
+      "telephone": "+91-8437330408",
+      "email": "devsarrawatia@gmail.com",
+      "jobTitle": "Software Engineer",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Chandigarh University",
+        "location": "Mohali, India"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ludhiana",
+        "addressRegion": "Punjab",
+        "addressCountry": "India"
+      },
+      "knowsAbout": [
+        "Python", "C++", "Machine Learning", "IoT", "Django", 
+        "FastAPI", "Streamlit", "AWS", "Docker", "Git",
+        "PyTorch", "Scikit-learn", "Big Data", "Cybersecurity"
+      ],
+      "sameAs": [
+        "https://github.com/adawatia",
+        "https://linkedin.com/in/adawatia"
+      ],
+      "workExperience": [
+        {
+          "@type": "OrganizationRole",
+          "roleName": "Intern",
+          "worksFor": {
+            "@type": "Organization", 
+            "name": "Indian Institute of Technology Guwahati"
+          },
+          "startDate": "2023-06",
+          "endDate": "2023-09",
+          "description": "Network-on-Chip (NoC) performance optimization for DNN implementations using C++ and Python"
+        },
+        {
+          "@type": "OrganizationRole",
+          "roleName": "ML Engineer Intern",
+          "worksFor": {
+            "@type": "Organization", 
+            "name": "Growth Purple"
+          },
+          "startDate": "2023-06",
+          "endDate": "2023-10",
+          "description": "Developed generative AI-powered interactive chatbots using LLM, Streamlit, and Langchain"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Summer School on AI Technologies",
+          "credentialCategory": "Certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "UUST, Russia"
+          },
+          "dateCreated": "2024"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "AWS Cloud Architect",
+          "credentialCategory": "Certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "AWS Academy"
+          },
+          "dateCreated": "2024"
+        }
+      ]
+    }
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
