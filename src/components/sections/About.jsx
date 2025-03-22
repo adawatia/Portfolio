@@ -200,11 +200,19 @@ export const About = () => {
         >
           <div className="rounded-xl p-6 md:p-8 border border-white/10 hover:-translate-y-1 transition-all">
             <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
-              A passionate software engineer with a strong problem-solving
-              mindset and a drive for innovation. Proficient in Python, C++, and
-              modern web frameworks, with experience in scalable applications,
-              cloud computing, and artificial intelligence. Enthusiastic about
-              leveraging my skills to build impactful solutions.
+              <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
+                Born in{" "}
+                <span className="text-cyan-400">Chirawa, Rajasthan</span> and
+                now based in <span className="text-cyan-400">Ludhiana</span>, I
+                developed a passion for technology through gaming, which led me
+                to explore software development and open-source systems. With a
+                problem-solving mindset, I navigate the world of Linux and
+                technology, always eager to learn and innovate. Beyond tech, I
+                practice <span className="text-blue-400">Karate</span>, enjoy
+                reading <span className="text-blue-400">books</span>, and love
+                sharing science knowledge. My goal is to build impactful
+                solutions that merge creativity with technology.
+              </p>
             </p>
 
             {/* Technical Expertise */}
