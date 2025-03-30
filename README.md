@@ -12,25 +12,6 @@ The website is now  [LIVE](https://adawatia.tech) and check it out!
 
 So go ahead, **click around, break things**, and let me know what you think! 😎  
 
-## 📸 Screenshots  
-Here are some previews of the portfolio in action:  
-
-### 🖼️ Homepage  
-<p align="center">
-  <img src="screenshots/1.png" alt="Desktop" width="70%" style="border: 2px solid #ddd; border-radius: 8px;">
-</p>
-
-### 📱 Mobile View  
-<p align="center">
-  <img src="screenshots/2.png" alt="Mobile" width="40%" style="border: 2px solid #ddd; border-radius: 8px;">
-</p>
-
-### ⏳ Loading Screen  
-<p align="center">
-  <img src="screenshots/3.png" alt="Loading screen" width="50%" style="border: 2px solid #ddd; border-radius: 8px;">
-</p>
-
-
 ---
 
 Let me know if you want to spice it up even more! 🔥
