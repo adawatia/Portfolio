@@ -2,21 +2,25 @@ import RevealOnScroll from "../RevealOnScroll";
 
 export const About = () => {
   const skills = {
-    Programming: ["Python", "C++"],
-    "Web & Frameworks": ["FastAPI", "Streamlit", "Django"],
-    "GUI Development": ["PySide"],
-    "DevOps & Cloud": ["Docker", "Git", "AWS S3", "AWS Beanstalk"],
-    "Data & ML": ["PostgreSQL", "NumPy", "Pandas", "Matplotlib"],
-    Interests: ["Linux", "Artificial Intelligence", "Computer Architecture"],
+    "Programming Languages": ["Python", "C++", "JavaScript", "SQL"],
+    "Web Development": ["HTML", "Tailwind CSS", "React", "Django", "FastAPI", "Streamlit"],
+    "Cloud & DevOps": ["Docker", "Git", "AWS (S3, Beanstalk)", "Google Cloud Platform (GCP)"],
+    "Database Technologies": ["PostgreSQL", "Firebase"],
+    "Data Science & Machine Learning": ["PyTorch", "Scikit-learn","NumPy", "Pandas", "Matplotlib"],
+    "GUI Development": ["PySide","Tkinter"],
+    "Soft Skills": ["Problem Solving", "Time Management", "Team Collaboration", "Communication"],
+    "Interests & Hobbies": ["Linux", "Cloud Computing", "Artificial Intelligence","Karate", "Reading", "Video Games"],
   };
-
+  
   const skillIcons = {
-    Programming: "💻",
-    "Web & Frameworks": "🌐",
+    "Programming Languages": "💻",
+    "Web Development": "🌐",
     "GUI Development": "🖱️",
-    "DevOps & Cloud": "☁️",
+    "Cloud & DevOps": "☁️",
+    "Soft Skills": "🤝",
     "Data & ML": "📊",
-    Interests: "🔍",
+    "Interests & Hobbies": "🔍",
+    "Database Technologies": "🗃️",
   };
 
   const certifications = [
@@ -40,7 +44,7 @@ export const About = () => {
       year: "2024",
       icon: "🤖",
       docLink:
-        "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing", // Example link
+        "https://drive.google.com/file/d/1Bi50y5u0QkPqCE0L7Q7h7TMyapZ4HWrB/view?usp=sharing",
     },
     {
       name: "NPTEL IoT",
@@ -65,7 +69,7 @@ export const About = () => {
       year: "2023",
       icon: "⚙️",
       docLink:
-        "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing", // Example link
+        "https://drive.google.com/file/d/17nWpdo5XYTxOBUH-CoYzPnHeZNkcd806/view?usp=sharing",
     },
     {
       name: "C++ Coding Bootcamp",
@@ -91,7 +95,16 @@ export const About = () => {
       institution: "Chandigarh University",
       period: "2021-2025",
       grade: "CGPA: 7.76",
-      coursework: "CN, DBMS, OS, DSA, CV, Big Data Analytics, AI",
+      coursework: ["CN", "DBMS", "OS", "DSA", "CV", "Big Data Analytics", "AI"],
+      courseIcons: {
+        "CN": "🌐",
+        "DBMS": "🗃️",
+        "OS": "💽",
+        "DSA": "🧮",
+        "CV": "👁️",
+        "Big Data Analytics": "📊",
+        "AI": "🤖",
+      },
       icon: "🎓",
     },
     {
@@ -143,7 +156,7 @@ export const About = () => {
       type: "Conference",
       icon: "🏥",
       docLink:
-        "https://drafts.icpids.com/pdfs/ICPIDS2024-1HzVgPgxdlBrv8gckLTbgg/346900a382/346900a382.pdf", // Example link
+        "https://drafts.icpids.com/pdfs/ICPIDS2024-1HzVgPgxdlBrv8gckLTbgg/346900a382/346900a382.pdf",
     },
     {
       title:
@@ -199,21 +212,19 @@ export const About = () => {
           delay={100}
         >
           <div className="rounded-xl p-6 md:p-8 border border-white/10 hover:-translate-y-1 transition-all">
-            <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
-              <p className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
-                Born in{" "}
-                <span className="text-cyan-400">Chirawa, Rajasthan</span> and
-                now based in <span className="text-cyan-400">Ludhiana</span>, I
-                developed a passion for technology through gaming, which led me
-                to explore software development and open-source systems. With a
-                problem-solving mindset, I navigate the world of Linux and
-                technology, always eager to learn and innovate. Beyond tech, I
-                practice <span className="text-blue-400">Karate</span>, enjoy
-                reading <span className="text-blue-400">books</span>, and love
-                sharing science knowledge. My goal is to build impactful
-                solutions that merge creativity with technology.
-              </p>
-            </p>
+            <div className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
+              Born in{" "}
+              <span className="text-cyan-400">Chirawa, Rajasthan</span> and
+              now based in <span className="text-cyan-400">Ludhiana</span>, I
+              developed a passion for technology through gaming, which led me
+              to explore software development and open-source systems. With a
+              problem-solving mindset, I navigate the world of Linux and
+              technology, always eager to learn and innovate. Beyond tech, I
+              practice <span className="text-blue-400">Karate</span>, enjoy
+              reading <span className="text-blue-400">books</span>, and love
+              sharing science knowledge. My goal is to build impactful
+              solutions that merge creativity with technology.
+            </div>
 
             {/* Technical Expertise */}
             <div className="flex items-center justify-center mb-6">
@@ -224,9 +235,9 @@ export const About = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {Object.entries(skills).map(([category, items], index) => (
+              {Object.entries(skills).map(([category, items]) => (
                 <div
-                  key={category} // Use category as key for uniqueness
+                  key={category}
                   className="rounded-xl p-4 sm:p-6 border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center mb-4">
@@ -236,9 +247,9 @@ export const About = () => {
                     </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {items.map((tech, key) => (
+                    {items.map((tech) => (
                       <div
-                        key={tech} // Use tech as key for uniqueness
+                        key={tech}
                         className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-md transition"
                       >
                         {tech}
@@ -267,9 +278,9 @@ export const About = () => {
               </div>
 
               <div className="space-y-6">
-                {education.map((item, index) => (
+                {education.map((item) => (
                   <div
-                    key={item.degree} // Use degree as key for uniqueness
+                    key={item.degree}
                     className="border-l-2 border-blue-500/50 pl-4 relative hover:border-blue-500 transition-all"
                   >
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
@@ -284,9 +295,23 @@ export const About = () => {
                     </p>
                     <p className="text-gray-300 text-sm">{item.grade}</p>
                     {item.coursework && (
-                      <p className="text-gray-300 text-sm mt-1">
-                        Coursework: {item.coursework}
-                      </p>
+                      <div className="mt-3">
+                        <div className="flex items-center mb-2">
+                          <span className="text-cyan-400 text-sm mr-2">📚</span>
+                          <p className="text-cyan-400 text-sm">Coursework:</p>
+                        </div>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {item.coursework.map((course) => (
+                            <div
+                              key={course}
+                              className="flex items-center bg-purple-500/10 text-purple-400 py-1 px-3 rounded-full text-sm hover:bg-purple-500/20 hover:shadow-md transition"
+                            >
+                              <span className="mr-1">{item.courseIcons[course] || "📘"}</span>
+                              {course}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     )}
                   </div>
                 ))}
@@ -308,9 +333,9 @@ export const About = () => {
               </div>
 
               <div className="space-y-6">
-                {experience.map((job, index) => (
+                {experience.map((job) => (
                   <div
-                    key={job.role} // Use role as key for uniqueness
+                    key={job.role}
                     className="border-l-2 border-blue-500/50 pl-4 relative hover:border-blue-500 transition-all"
                   >
                     <div className="absolute w-3 h-3 bg-blue-500 rounded-full left-[-7px] top-1.5"></div>
@@ -330,8 +355,7 @@ export const About = () => {
                             aria-label={`Verify experience: ${job.role} at ${job.company}`}
                             className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all"
                           >
-                            <span className="mr-1">🔍</span>{" "}
-                            {/* Changed icon to a magnifying glass */}
+                            <span className="mr-1">🔍</span>
                             Verify
                           </a>
                         </div>
@@ -362,9 +386,9 @@ export const About = () => {
             </div>
 
             <div className="space-y-6">
-              {publications.map((pub, index) => (
+              {publications.map((pub) => (
                 <div
-                  key={pub.title} // Use title as key for uniqueness
+                  key={pub.title}
                   className="flex items-start p-4 rounded-lg border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <IconBadge icon={pub.icon} size="md" />
@@ -424,9 +448,9 @@ export const About = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {certifications.map((cert, index) => (
+              {certifications.map((cert) => (
                 <div
-                  key={cert.name} // Use name as key for uniqueness
+                  key={cert.name}
                   className="flex items-start p-4 rounded-lg border border-white/10 hover:-translate-y-1 transition-all"
                 >
                   <IconBadge icon={cert.icon} size="md" />
@@ -444,8 +468,7 @@ export const About = () => {
                             aria-label={`Verify certification: ${cert.name}`}
                             className="inline-flex items-center bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-xs hover:bg-blue-500/20 transition-all whitespace-nowrap"
                           >
-                            <span className="mr-1">🔍</span>{" "}
-                            {/* Changed icon to a magnifying glass */}
+                            <span className="mr-1">🔍</span>
                             Verify
                           </a>
                         </div>
