@@ -6,7 +6,7 @@ export const About = () => {
     "Web Development": ["HTML", "Tailwind CSS", "React", "Django", "FastAPI", "Streamlit"],
     "Cloud & DevOps": ["Docker", "Git", "AWS (S3, Beanstalk)", "Google Cloud Platform (GCP)"],
     "Database Technologies": ["PostgreSQL", "Firebase"],
-    "Data Science & Machine Learning": ["PyTorch", "Scikit-learn","NumPy", "Pandas", "Matplotlib"],
+    "Data Science & Machine Learning": ["Scikit-learn","NumPy", "Pandas", "Matplotlib"],
     "GUI Development": ["PySide","Tkinter"],
     "Soft Skills": ["Problem Solving", "Time Management", "Team Collaboration", "Communication"],
     "Interests & Hobbies": ["Linux", "Cloud Computing", "Artificial Intelligence","Karate", "Reading", "Video Games"],
@@ -18,7 +18,7 @@ export const About = () => {
     "GUI Development": "🖱️",
     "Cloud & DevOps": "☁️",
     "Soft Skills": "🤝",
-    "Data & ML": "📊",
+    "Data Science & Machine Learning": "📊",
     "Interests & Hobbies": "🔍",
     "Database Technologies": "🗃️",
   };
