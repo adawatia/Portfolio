@@ -3,24 +3,67 @@ import RevealOnScroll from "../RevealOnScroll";
 export const About = () => {
   const skills = {
     "Programming Languages": ["Python", "C++", "JavaScript", "SQL"],
-    "Web Development": ["HTML", "Tailwind CSS", "React", "Django", "FastAPI", "Streamlit"],
-    "Cloud & DevOps": ["Docker", "Git", "AWS (S3, Beanstalk)", "Google Cloud Platform (GCP)"],
+    "Cloud & DevOps": [
+      "Docker",
+      "Git",
+      "AWS (S3, Beanstalk)",
+      "Google Cloud Platform (GCP)",
+    ],
     "Database Technologies": ["PostgreSQL", "Firebase"],
-    "Data Science & Machine Learning": ["Scikit-learn","NumPy", "Pandas", "Matplotlib"],
-    "GUI Development": ["PySide","Tkinter"],
-    "Soft Skills": ["Problem Solving", "Time Management", "Team Collaboration", "Communication"],
-    "Interests & Hobbies": ["Linux", "Cloud Computing", "Artificial Intelligence","Karate", "Reading", "Video Games"],
+    "Data Science & Machine Learning": [
+      "Scikit-learn",
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+    ],
+    "Frontend Development": [
+      "Flet",
+      "Streamlit",
+      "HTML",
+      "TailwindCSS",
+      "React",
+    ],
+    "Backend Development": ["Flask", "FastAPI", "Node.js"],
+    "Interests & Hobbies": [
+      "Linux",
+      "Karate",
+      "Reading",
+      "Video Games",
+      "Computer Architecture",
+    ],
+    "Soft Skills": [
+      "Problem Solving",
+      "Time Management",
+      "Team Collaboration",
+      "Communication",
+    ],
   };
-  
+
   const skillIcons = {
     "Programming Languages": "💻",
-    "Web Development": "🌐",
-    "GUI Development": "🖱️",
     "Cloud & DevOps": "☁️",
-    "Soft Skills": "🤝",
-    "Data Science & Machine Learning": "📊",
-    "Interests & Hobbies": "🔍",
     "Database Technologies": "🗃️",
+    "Data Science & Machine Learning": "📊",
+    "Frontend Development": "🎨",
+    "Backend Development": "🧩",
+    "Interests & Hobbies": "🧠",
+    "Soft Skills": "🤝",
+  };
+
+  // Enhanced coursework with grouping by domain
+  const coursework = {
+    "Core Computer Science": [
+      "Algorithms",
+      "Data Structures",
+      "Computer Architecture",
+      "Operating System",
+    ],
+    "Data & Analytics": ["Big Data Analytics", "Data Visualization", "DBMS"],
+    "AI & Networks": [
+      "Machine Learning",
+      "Computer Vision",
+      "Computer Networks",
+    ],
   };
 
   const certifications = [
@@ -95,16 +138,7 @@ export const About = () => {
       institution: "Chandigarh University",
       period: "2021-2025",
       grade: "CGPA: 7.76",
-      coursework: ["CN", "DBMS", "OS", "DSA", "CV", "Big Data Analytics", "AI"],
-      courseIcons: {
-        "CN": "🌐",
-        "DBMS": "🗃️",
-        "OS": "💽",
-        "DSA": "🧮",
-        "CV": "👁️",
-        "Big Data Analytics": "📊",
-        "AI": "🤖",
-      },
+      coursework: coursework,
       icon: "🎓",
     },
     {
@@ -123,13 +157,20 @@ export const About = () => {
     },
   ];
 
+  // Enhanced work experience with key achievements and technologies
   const experience = [
     {
       role: "Research Intern",
       company: "IIT Guwahati",
       period: "May-July 2023",
       description:
-        "Optimized Deep Neural Networks (DNN) on Network-on-Chip (NoC) architectures using C++ & Python. Identified performance bottlenecks and contributed to AI hardware-software co-design principles.",
+        "Accelerated Deep Neural Network inference on NoC architectures using Timeloop, C++ and Python. Contributed to AI hardware-software co-design.",
+      achievements: [
+        "⏱️ 23% latency reduction via optimized data mapping",
+        "🧪 Built NoC simulation models for workload testing",
+        "📄 Contributed to research on AI accelerator design",
+      ],
+      technologies: ["C++", "Python", "Timeloop", "NoC Architecture"],
       icon: "🔬",
       docLink:
         "https://drive.google.com/file/d/1ImZJTuVyvpGp9PQaTdqS6ostz9d2X1lD/view?usp=sharing",
@@ -139,7 +180,19 @@ export const About = () => {
       company: "Growth Purple",
       period: "June-October 2023",
       description:
-        "Developed an interactive PDF chatbot powered by Large Language Models (LLMs), leveraging Streamlit, LangChain, and Hugging Face APIs for intelligent document interaction.",
+        "Built a PDF chatbot using LLMs, Streamlit, and LangChain for real-time document interaction.",
+      achievements: [
+        "📄 90% accuracy on complex PDF formats",
+        "🧠 Integrated RAG for better context retrieval",
+        "📉 Reduced support tickets by 35%",
+      ],
+      technologies: [
+        "Python",
+        "Streamlit",
+        "LangChain",
+        "Hugging Face",
+        "LLMs",
+      ],
       icon: "🧠",
     },
   ];
@@ -213,17 +266,16 @@ export const About = () => {
         >
           <div className="rounded-xl p-6 md:p-8 border border-white/10 hover:-translate-y-1 transition-all">
             <div className="text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
-              Born in{" "}
-              <span className="text-cyan-400">Chirawa, Rajasthan</span> and
-              now based in <span className="text-cyan-400">Ludhiana</span>, I
-              developed a passion for technology through gaming, which led me
+              Born in <span className="text-cyan-400">Chirawa, Rajasthan</span>{" "}
+              and now based in <span className="text-cyan-400">Ludhiana</span>,
+              I developed a passion for technology through gaming, which led me
               to explore software development and open-source systems. With a
               problem-solving mindset, I navigate the world of Linux and
               technology, always eager to learn and innovate. Beyond tech, I
               practice <span className="text-blue-400">Karate</span>, enjoy
               reading <span className="text-blue-400">books</span>, and love
-              sharing science knowledge. My goal is to build impactful
-              solutions that merge creativity with technology.
+              sharing science knowledge. My goal is to build impactful solutions
+              that merge creativity with technology.
             </div>
 
             {/* Technical Expertise */}
@@ -298,19 +350,29 @@ export const About = () => {
                       <div className="mt-3">
                         <div className="flex items-center mb-2">
                           <span className="text-cyan-400 text-sm mr-2">📚</span>
-                          <p className="text-cyan-400 text-sm">Coursework:</p>
+                          <p className="text-cyan-400 text-base font-semibold">
+                            Relevant Coursework:
+                          </p>
                         </div>
-                        <div className="flex flex-wrap gap-2 mt-1">
-                          {item.coursework.map((course) => (
-                            <div
-                              key={course}
-                              className="flex items-center bg-purple-500/10 text-purple-400 py-1 px-3 rounded-full text-sm hover:bg-purple-500/20 hover:shadow-md transition"
-                            >
-                              <span className="mr-1">{item.courseIcons[course] || "📘"}</span>
-                              {course}
+                        {Object.entries(item.coursework).map(
+                          ([category, courses]) => (
+                            <div key={category} className="mb-2">
+                              <p className="text-blue-500 text-sm font-medium mb-1">
+                                {category}:
+                              </p>
+                              <div className="flex flex-wrap gap-1">
+                                {courses.map((course) => (
+                                  <div
+                                    key={course}
+                                    className="bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-sm hover:bg-blue-500/20 transition"
+                                  >
+                                    {course}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          ))}
-                        </div>
+                          )
+                        )}
                       </div>
                     )}
                   </div>
@@ -365,6 +427,37 @@ export const About = () => {
                     <p className="text-gray-300 text-sm mt-1">
                       {job.description}
                     </p>
+
+                    {/* Key Achievements */}
+                    <div className="mt-2">
+                      <p className="text-cyan-400 text-base font-semibold mb-1">
+                        Key Achievements:
+                      </p>
+                      <ul className="list-disc list-inside text-gray-300 text-sm">
+                        {job.achievements.map((achievement, index) => (
+                          <li key={index} className="ml-1 mt-1">
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Technologies Used */}
+                    <div className="mt-2">
+                      <p className="text-cyan-400 text-base font-semibold mb-1">
+                        Technologies:
+                      </p>
+                      <div className="flex flex-wrap gap-1">
+                        {job.technologies.map((tech, index) => (
+                          <div
+                            key={index}
+                            className="bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-sm hover:bg-blue-500/20 transition"
+                          >
+                            {tech}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
