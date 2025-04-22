@@ -66,6 +66,32 @@ export const About = () => {
     ],
   };
 
+  // Course category styling - matches with theme but provides distinction
+  const courseStyles = {
+    "Core Computer Science": {
+      bgColor: "bg-blue-500/10",
+      textColor: "text-blue-400",
+      hoverBg: "hover:bg-blue-500/20"
+    },
+    "Data & Analytics": {
+      bgColor: "bg-cyan-500/10",
+      textColor: "text-cyan-400",
+      hoverBg: "hover:bg-cyan-500/20"
+    },
+    "AI & Networks": {
+      bgColor: "bg-indigo-500/10",
+      textColor: "text-indigo-400",
+      hoverBg: "hover:bg-indigo-500/20"
+    }
+  };
+
+  // Course category icons
+  const courseIcons = {
+    "Core Computer Science": "🧮",
+    "Data & Analytics": "📊",
+    "AI & Networks": "🤖"
+  };
+
   const certifications = [
     {
       name: "Google IT Automation with Python",
@@ -354,17 +380,23 @@ export const About = () => {
                             Relevant Coursework:
                           </p>
                         </div>
+                        {/* Enhanced coursework rendering with unique styling per category */}
                         {Object.entries(item.coursework).map(
                           ([category, courses]) => (
-                            <div key={category} className="mb-2">
-                              <p className="text-blue-500 text-sm font-medium mb-1">
-                                {category}:
-                              </p>
-                              <div className="flex flex-wrap gap-1">
+                            <div key={category} className="mb-3">
+                              <div className="flex items-center mb-1">
+                                <span className={`text-sm mr-1 ${courseStyles[category].textColor}`}>
+                                  {courseIcons[category]}
+                                </span>
+                                <p className={`${courseStyles[category].textColor} text-sm font-medium`}>
+                                  {category}:
+                                </p>
+                              </div>
+                              <div className="flex flex-wrap gap-2">
                                 {courses.map((course) => (
                                   <div
                                     key={course}
-                                    className="bg-blue-500/10 text-blue-500 py-0.5 px-2 rounded-md text-sm hover:bg-blue-500/20 transition"
+                                    className={`${courseStyles[category].bgColor} ${courseStyles[category].textColor} py-1 px-3 rounded-md text-sm ${courseStyles[category].hoverBg} hover:shadow-md transition`}
                                   >
                                     {course}
                                   </div>
