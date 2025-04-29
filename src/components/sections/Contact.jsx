@@ -66,7 +66,7 @@ export const Contact = () => {
         setIsSubmitting(true);
         setLoadingDots(".");
 
-        emailjs.sendForm(import.meta.env.VITE_EMAIL_SERVICE_ID, import.meta.env.VITE_EMAIL_TEMPLATE_ID, e.target, import.meta.env.VITE_EMAIL_USER_ID)
+        emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, e.target, import.meta.env.VITE_EMAILJS_USER_ID)
             .then((result) => {
                 setSubmissionStatus("success");
                 setFormData({ name: "", email: "", message: "" });
