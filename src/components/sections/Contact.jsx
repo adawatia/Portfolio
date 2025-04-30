@@ -3,6 +3,27 @@ import RevealOnScroll from "../RevealOnScroll";
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
+    // Add CSS animation for notifications
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, 20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -128,13 +149,53 @@ export const Contact = () => {
         }
     };
 
+    // Get status icon based on submission status
+    const getStatusIcon = () => {
+        switch(submissionStatus) {
+            case "success":
+                return (
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                );
+            case "error":
+                return (
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                );
+            case "invalid-email":
+                return (
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                );
+            default:
+                return null;
+        }
+    };
+    
+    // Get notification background style based on status
+    const getNotificationStyle = () => {
+        switch(submissionStatus) {
+            case "success":
+                return "from-green-500/20 to-green-500/40 border-green-400/50";
+            case "error":
+                return "from-red-500/20 to-red-500/40 border-red-400/50";
+            case "invalid-email":
+                return "from-yellow-500/20 to-yellow-500/40 border-yellow-400/50";
+            default:
+                return "";
+        }
+    };
+
     return (
         <section
             id="contact"
             className="min-h-screen flex items-center justify-center py-20"
         >
             <RevealOnScroll>
-                <div className="px-6 w-full max-w-2xl">
+                <div className="px-6 w-full max-w-2xl relative">
                     <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center mb-8">
                         Get in Touch
                     </h2>
@@ -157,13 +218,16 @@ export const Contact = () => {
                         </div>
                     </div>
 
-                    {/* Submission Status Message */}
+                    {/* Submission Status Notification - Centered */}
                     {submissionStatus && (
-                        <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-lg text-white ${
-                            submissionStatus === "success" ? "bg-green-500" : 
-                            submissionStatus === "invalid-email" ? "bg-yellow-500" : "bg-red-500"
-                        } animate-fade-in z-50`}>
-                            {getStatusMessage()}
+                        <div 
+                            className={`fixed inset-x-0 bottom-8 mx-auto w-11/12 sm:w-auto sm:min-w-80 max-w-md p-4 rounded-lg backdrop-blur-md bg-gradient-to-r ${getNotificationStyle()} border border-white/10 text-white flex items-center justify-center transition-all duration-500 shadow-xl z-50`}
+                            role="alert"
+                            aria-live="assertive"
+                            style={{animation: "fadeInUp 0.5s ease-out forwards", left: "50%", transform: "translateX(-50%)"}}
+                        >
+                            {getStatusIcon()}
+                            <span className="font-medium">{getStatusMessage()}</span>
                         </div>
                     )}
 
@@ -260,7 +324,7 @@ export const Contact = () => {
                         </div>
 
                         {/* Submit Button */}
-                        <div className="text-center">
+                        <div className="relative">
                             <button
                                 type="submit"
                                 disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
@@ -273,6 +337,8 @@ export const Contact = () => {
                             >
                                 {isSubmitting ? `Sending${loadingDots}` : 'Send Message'}
                             </button>
+                            
+                            {/* Remove inline success notification as we now have a better toast notification */}
                         </div>
                         
                         {/* Estimated response time */}
