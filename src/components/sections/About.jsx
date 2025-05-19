@@ -22,9 +22,8 @@ export const About = () => {
       "Streamlit",
       "HTML",
       "TailwindCSS",
-      "React",
     ],
-    "Backend Development": ["Flask", "FastAPI", "Node.js"],
+    "Backend Development": ["Flask", "FastAPI"],
     "Interests & Hobbies": [
       "Linux",
       "Karate",
