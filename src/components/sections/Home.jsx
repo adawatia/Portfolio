@@ -265,7 +265,7 @@ export const Home = () => {
         <div className="text-center z-10 px-6">
           <RevealOnScroll animationType="fade-up" delay={200}>
             <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-500 to-cyan-300 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-              Hey! I'm Devansh Sharma.✨
+              Hey! I'm Devansh Sharma✨
             </h1>
           </RevealOnScroll>
           
