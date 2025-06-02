@@ -22,6 +22,7 @@ export const About = () => {
       "Streamlit",
       "HTML",
       "TailwindCSS",
+      "React"
     ],
     "Backend Development": ["Flask", "FastAPI"],
     "Interests & Hobbies": [
@@ -202,11 +203,10 @@ export const About = () => {
         "https://drive.google.com/file/d/1ImZJTuVyvpGp9PQaTdqS6ostz9d2X1lD/view?usp=sharing",
     },
     {
-      role: "ML Engineer Intern",
+      role: "Mentee (ML Engineering)",
       company: "Growth Purple",
       period: "June-October 2023",
-      description:
-        "Built a PDF chatbot using LLMs, Streamlit, and LangChain for real-time document interaction.",
+      description: "Engaged in a focused mentorship experience, actively participating in the development of a PDF chatbot using LLMs, Streamlit, and LangChain for real-time document interaction.",
       achievements: [
         "📄 90% accuracy on complex PDF formats",
         "🧠 Integrated RAG for better context retrieval",
