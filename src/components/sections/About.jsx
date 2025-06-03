@@ -9,7 +9,7 @@ export const About = () => {
       "AWS (S3, Beanstalk)",
       "Google Cloud Platform (GCP)",
     ],
-    "Database Technologies": ["PostgreSQL", "Firebase"],
+    "Database Technologies": ["SQLite"],
     "Data Science & Machine Learning": [
       "Scikit-learn",
       "NumPy",
@@ -18,7 +18,6 @@ export const About = () => {
       "Pytorch"
     ],
     "Frontend Development": [
-      "Flet",
       "Streamlit",
       "HTML",
       "TailwindCSS",
