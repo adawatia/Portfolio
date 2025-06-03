@@ -2,7 +2,7 @@ import RevealOnScroll from "../RevealOnScroll";
 
 export const About = () => {
   const skills = {
-    "Programming Languages": ["Python", "C++"],
+    "Programming Languages": ["Python", "C++", "JavaScript"],
     "Cloud & DevOps": [
       "Docker",
       "Git",
